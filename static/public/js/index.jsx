@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// импорт компонента "галерея"
+import Gallery from './gallery.jsx';
 
+// обращение к DOM и отрисовка в root компонента "галерея"
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
+    <Gallery></Gallery>,
+    document.getElementById('root')
 );
