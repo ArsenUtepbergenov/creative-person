@@ -6,7 +6,7 @@ import Home from './home.jsx';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-// обращение к DOM и отрисовка в root компонента "галерея"
+// обращение к DOM и отрисовка в root компонента "Router"
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path='/' component={App}>

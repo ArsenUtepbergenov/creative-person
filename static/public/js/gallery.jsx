@@ -34,13 +34,31 @@ class Picture extends React.Component {
 
 // Компонент "галерея"
 class Gallery extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {displayedPictures: PICTURES};
+        this._search = this._search.bind(this);
+    }
+
+    _search(event) {
+        let searchQuery = event.target.value.toLowerCase();
+        let displayedPictures = PICTURES.filter(function(el) {
+            let searchValue = el.title.toLowerCase();
+            return searchValue.indexOf(searchQuery) !== -1;
+        });
+        this.setState({
+            displayedPictures: displayedPictures
+        });
+    }
+
     render() {
         return (
-            <div>
+            <div className="cp-gallery">
+                <input type="text" className="cp-search-picture" onChange={this._search}></input>
                 <ul className="cp-pictures-list">
                     {
                         // проход по массиву "картинки"
-                        PICTURES.map(function(el) {
+                        this.state.displayedPictures.map(function(el) {
                             // key, title, author передача параметров в компонент "картинка"
                             return <Picture key={el.id} title={el.title} author={el.author}></Picture>;
                         })
