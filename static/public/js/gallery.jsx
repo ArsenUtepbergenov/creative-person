@@ -2,20 +2,8 @@
 import React from 'react';
 // импорт react-dom для работы с DOM деревом
 import ReactDOM from 'react-dom';
-
-// тестовые данные
-let PICTURES = [
-    {
-        id: 1,
-        title: 'Mormons',
-        author: 'Vladislav Mikin'
-    },
-    {
-        id: 2,
-        title: 'Reaper',
-        author: 'Andrew Zabolotny'
-    }
-];
+// импорт axios для ajax запросов
+import axios from 'axios';
 
 // Компонент "картина"
 class Picture extends React.Component {
@@ -36,25 +24,36 @@ class Picture extends React.Component {
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {displayedPictures: PICTURES};
-        this._search = this._search.bind(this);
+        // pictures - массив всех картин, displayedPictures - массив, который будет отображаться на странице (меняется при фильтре)
+        this.state = {pictures: [], displayedPictures: []};
+        this.search = this.search.bind(this);
     }
 
-    _search(event) {
+    componentDidMount() {
+        axios.get('/gallery').then(results => {
+            this.setState({
+                pictures: results.data,
+                displayedPictures: results.data
+            });
+        });
+    }
+
+    search(event) {
         let searchQuery = event.target.value.toLowerCase();
-        let displayedPictures = PICTURES.filter(function(el) {
+        console.log(this.state.pictures);
+        let pictures = this.state.pictures.filter(function(el) {
             let searchValue = el.title.toLowerCase();
             return searchValue.indexOf(searchQuery) !== -1;
         });
         this.setState({
-            displayedPictures: displayedPictures
+            displayedPictures: pictures
         });
     }
 
     render() {
         return (
             <div className="cp-gallery">
-                <input type="text" className="cp-search-picture" onChange={this._search}></input>
+                <input type="text" className="cp-search-picture" onChange={this.search}></input>
                 <ul className="cp-pictures-list">
                     {
                         // проход по массиву "картинки"

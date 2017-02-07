@@ -1,11 +1,13 @@
+.cp-nav-menu {
+  list-style: none;
+  color: #688455; }
+
 .cp-picture-item {
   color: #897766; }
 
 .cp-pictures-list {
   list-style: none; }
 
-header {
-  background-color: #234232; }
-
-body {
-  background-color: #8adfe6; }
+* {
+  margin: 0;
+  padding: 0; }

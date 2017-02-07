@@ -12,6 +12,7 @@
     "pg": "^6.1.2"
   },
   "devDependencies": {
+    "axios": "^0.15.3",
     "babelify": "^7.3.0",
     "body-parser": "^1.16.0",
     "browserify": "^14.0.0",
@@ -19,6 +20,7 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^3.1.0",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
