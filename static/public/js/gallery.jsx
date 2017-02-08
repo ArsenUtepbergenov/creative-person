@@ -11,11 +11,11 @@ class Picture extends React.Component {
     render() {
         return (
             // вместо class применяется className для совместимости
-            <li className="cp-picture-item">
+            <div className="cp-picture-item">
                 {/* this.props обращение к полученному свойству */}
-                <div>{this.props.title}</div>
-                <div>{this.props.author}</div>
-            </li>
+                <h3>{this.props.title}</h3>
+                <p>{this.props.author}</p>
+            </div>
         );
     }
 }
@@ -54,7 +54,7 @@ class Gallery extends React.Component {
         return (
             <div className="cp-gallery">
                 <input type="text" className="cp-search-picture" onChange={this.search}></input>
-                <ul className="cp-pictures-list">
+                <div className="cp-pictures-list">
                     {
                         // проход по массиву "картинки"
                         this.state.displayedPictures.map(function(el) {
@@ -62,7 +62,7 @@ class Gallery extends React.Component {
                             return <Picture key={el.id} title={el.title} author={el.author}></Picture>;
                         })
                     }
-                </ul>
+                </div>
             </div>
         );
     }

@@ -8,7 +8,7 @@ class App extends React.Component {
                 <h1>App</h1>
                 <ul className="cp-nav-menu">
                     <li>
-                        <Link to='/gallery'>Gallery</Link>
+                        <Link to='/gallery' className="cp-nav-link">Gallery</Link>
                     </li>
                 </ul>
                 {/* добавили вывод потомков */}
