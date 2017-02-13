@@ -1,1 +1,2 @@
-# creative-person
+# npm install,
+# npm run server

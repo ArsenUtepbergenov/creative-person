@@ -63,6 +63,7 @@ class Gallery extends React.Component {
                         })
                     }
                 </div>
+                <button type="button" onClick=>Add picture</button>
             </div>
         );
     }

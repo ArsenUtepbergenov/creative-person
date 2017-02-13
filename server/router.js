@@ -1,9 +1,11 @@
-var express = require('express');
-var pg = require('pg');
-var router = express.Router();
+import express from 'express';
+import pg from 'pg';
+import path from 'path';
+
+let router = express.Router();
 
 // конфигурация для подключения к базе данных
-var config = {
+let config = {
     user: 'adminCP', // env var: PGUSER
     database: 'creativepersondb', // env var: PGDATABASE
     password: 'retihe37', // env var: PGPASSWORD
@@ -14,7 +16,7 @@ var config = {
 };
 
 router.get('/', function(req, res) {
-    res.sendFile(__dirname + '/static/public/pages/index.html');
+    res.sendFile(path.join(__dirname, '../static/public/pages/index.html'));
 });
 
 router.get('/gallery', function(req, res) {
