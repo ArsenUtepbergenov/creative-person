@@ -2,7 +2,13 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 
+import webpack from 'webpack';
+import webpackMiddleware from 'webpack-dev-middleware';
+import webpackConfig from '../webpack.config.dev';
+
 const app = express();
+
+app.use(webpackMiddleware(webpack(webpackConfig)));
 
 // create application/json parser
 let jsonParser = bodyParser.json();

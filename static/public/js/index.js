@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app.jsx';
-import Gallery from './gallery.jsx';
-import Home from './home.jsx';
+import App from './app.js';
+import Gallery from './gallery.js';
+import Home from './home.js';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
