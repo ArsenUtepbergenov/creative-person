@@ -1,3 +1,7 @@
+// необходимо импортировать все файлы стилей (.scss)
+@import 'app';
+@import 'gallery';
+
 * {
     margin: 0;
     padding: 0;

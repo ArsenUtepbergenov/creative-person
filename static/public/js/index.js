@@ -4,6 +4,9 @@ import App from './app.js';
 import Gallery from './gallery.js';
 import Home from './home.js';
 
+// все стили
+import '../scss/index.scss';
+
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 // обращение к DOM и отрисовка в root компонента "Router"
