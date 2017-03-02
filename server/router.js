@@ -41,4 +41,24 @@ router.get('/gallery', function(req, res) {
     })
 });
 
+router.post('/gallery', function(req, res) {
+
+    var pool = new pg.Pool(config);
+
+    pool.connect(function(err, client, done) {
+        if (err) {
+            return console.error('error fetching client from pool', err);
+        }
+        client.query('INSERT INTO gallery(title, author) VALUES($1, $2)',
+                     [req.body.title, req.body.author]
+        );
+        done();
+        res.redirect('/');
+    });
+
+    pool.on('error', function(err, client) {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
 module.exports = router;

@@ -1,7 +1,6 @@
 // для всех стилей нужно писать префикс cp- от "Creative person"
 
 input[type=text] {
-    width: 25%;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 3px solid #ccc;
@@ -32,4 +31,57 @@ input[type=text]:focus {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
+}
+
+// add picture button
+.cp-add-picture-button {
+    border: 0;
+    background-color: #9cb7fd;
+    cursor: pointer;
+}
+
+// modal form add picture
+.cp-form-add-picture {
+    border: 25px solid #7d95d2;
+    width: 500px;
+    margin: auto;
+}
+
+.cp-form-add-picture-header {
+    background-color: #7d95d2;
+    padding: 20px 0;
+}
+
+.cp-form-add-picture-body {
+    background-color: #ffffff;
+    padding: 10px;
+    height: 130px;
+}
+
+.cp-form-body-row {
+    display: block;
+    margin: 10px;
+}
+
+.cp-form-body-label {
+    margin-right: 10px;
+}
+
+.cp-form-body-input {
+    margin: auto;
+}
+
+.cp-form-add-picture-footer {
+    background-color: #7d95d2;
+    padding: 10px 0;
+}
+
+.cp-form-add-picture-button {
+    margin: auto;
+    display: block;
+    border: none;
+    cursor: pointer;
+    padding: 10px 25px;
+    background-color: #3d5590;
+    color: #ffffff;
 }
