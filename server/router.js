@@ -15,11 +15,11 @@ let config = {
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 
-router.get('/', function(req, res) {
+router.get(/^(\/|\/gallery)$/, function(req, res) {
     res.sendFile(path.join(__dirname, '../static/public/pages/index.html'));
 });
 
-router.get('/gallery', function(req, res) {
+router.get('/api/gallery', function(req, res) {
 
     var pool = new pg.Pool(config);
 
@@ -41,7 +41,7 @@ router.get('/gallery', function(req, res) {
     })
 });
 
-router.post('/gallery', function(req, res) {
+router.post('/api/gallery', function(req, res) {
 
     var pool = new pg.Pool(config);
 
@@ -53,7 +53,7 @@ router.post('/gallery', function(req, res) {
                      [req.body.title, req.body.author]
         );
         done();
-        res.redirect('/');
+        res.redirect('/gallery');
     });
 
     pool.on('error', function(err, client) {

@@ -24,38 +24,48 @@ class Picture extends React.Component {
 class FormPicture extends React.Component {
     constructor(props) {
         super(props);
-        this.title = null;
-        this.author = null;
+        this.state = {
+            inputTitle: '',
+            inputAuthor: ''
+        };
+        this.changeDataPicture = this.changeDataPicture.bind(this);
         this.addPicture = this.addPicture.bind(this);
     }
 
-    addPicture() {
-        this.title = document.getElementsByName('input-title')[0].value;
-        this.author = document.getElementsByName('input-author')[0].value;
+    changeDataPicture(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
-        axios.post('/gallery', {
-            title: this.title,
-            author: this.author
+        this.setState({
+            [name]: value}
+        );
+    }
+
+    addPicture(event) {
+        axios.post('/api/gallery', {
+            title: this.state.inputTitle,
+            author: this.state.inputAuthor
         });
     }
 
     render() {
         return (
-            <form className="cp-form-add-picture">
+            <form className="cp-form-add-picture" onSubmit={this.addPicture}>
                 <div className="cp-form-add-picture-header">
                 </div>
                 <div className="cp-form-add-picture-body">
                     <div className="cp-form-body-row">
-                        <label className="cp-form-body-label" htmlFor="input-title">Title:</label>
-                        <input className="cp-form-body-input" name="input-title" type="text" placeholder="Enter new title.." required />
+                        <label className="cp-form-body-label" htmlFor="inputTitle">Title:</label>
+                        <input className="cp-form-body-input" name="inputTitle" type="text" placeholder="Enter new title.." onChange={this.changeDataPicture} required />
                     </div>
                     <div className="cp-form-body-row">
-                        <label className="cp-form-body-label" htmlFor="input-author">Author:</label>
-                        <input className="cp-form-body-input" name="input-author" type="text" placeholder="Enter new author..." required />
+                        <label className="cp-form-body-label" htmlFor="inputAuthor">Author:</label>
+                        <input className="cp-form-body-input" name="inputAuthor" type="text" placeholder="Enter new author..." onChange={this.changeDataPicture} required />
                     </div>
                 </div>
                 <div className="cp-form-add-picture-footer">
-                    <button className="cp-form-add-picture-button" type="button" onClick={this.addPicture}>Add picture</button>
+                    <button className="cp-form-add-picture-button" type="submit">Add picture</button>
                 </div>
             </form>
         );
@@ -72,7 +82,7 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/gallery').then(results => {
+        axios.get('/api/gallery').then(results => {
             this.setState({
                 pictures: results.data,
                 displayedPictures: results.data
