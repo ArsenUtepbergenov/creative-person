@@ -1,8 +1,27 @@
 .cp-nav-menu {
     list-style: none;
-}
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: black;
 
-.cp-nav-link {
-    text-decoration: none;
-    cursor: pointer;
+    .cp-nav-link-wrapper {
+        font-family: century gothic;
+        font-size: 1.2em;
+    }
+
+    .cp-nav-link {
+        text-decoration: none;
+        cursor: pointer;
+        display: block;
+        padding: 1em;
+        color: white;
+        opacity: 0.75;
+    }
+
+    .cp-nav-link:hover {
+        opacity: 1.0;
+    }
 }
