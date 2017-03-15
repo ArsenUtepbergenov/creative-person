@@ -15,7 +15,7 @@ let config = {
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 
-router.get(/^(\/|\/gallery)$/, function(req, res) {
+router.get(/^(\/|\/gallery|\/photo|\/music|\/signup)$/, function(req, res) {
     res.sendFile(path.join(__dirname, '../static/public/pages/index.html'));
 });
 

@@ -1,6 +1,8 @@
 // необходимо импортировать все файлы стилей (.scss)
+@import 'templates';
 @import 'app';
 @import 'gallery';
+@import 'signup';
 @import 'font-awesome.min';
 
 * {

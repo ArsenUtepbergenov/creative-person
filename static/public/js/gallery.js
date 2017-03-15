@@ -21,7 +21,7 @@ class Picture extends React.Component {
 }
 
 // Компонент "форма добавления картины"
-class FormPicture extends React.Component {
+class PictureForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -106,7 +106,7 @@ class Gallery extends React.Component {
         return (
             <div className="cp-gallery">
                 <input type="text" className="cp-search-picture" onChange={this.search}></input>
-                <FormPicture></FormPicture>
+                <PictureForm></PictureForm>
                 <div className="cp-pictures-list">
                     {
                         // проход по массиву "картинки"

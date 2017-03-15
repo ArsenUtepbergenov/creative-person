@@ -18,6 +18,9 @@ class NavigationBar extends React.Component {
                     <li className="cp-nav-link-wrapper">
                         <Link to='/music' className="cp-nav-link">Music</Link>
                     </li>
+                    <li className="cp-nav-link-wrapper cp-nav-link-signup">
+                        <Link to='/signup' className="cp-nav-link">Sign up</Link>
+                    </li>
                 </ul>
             </nav>
         )

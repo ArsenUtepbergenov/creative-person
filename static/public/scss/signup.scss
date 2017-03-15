@@ -1,0 +1,41 @@
+.cp-signup-form {
+    border: 3px solid black;
+    width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+
+    .cp-signup-form-caption {
+
+    }
+
+    .cp-signup-form-input-wrapper {
+        position: relative;
+        display: inline-block;
+
+        .cp-signup-form-input-icon-wrapper {
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            width: 39px;
+            height: 39px;
+            background-color: #555555;
+            display: flex;
+
+            .cp-signup-form-input-icon {
+                margin: auto;
+                color: #8ace3c;
+            }
+        }
+
+        .cp-signup-form-input {
+            padding-left: 44px;
+        }
+    }
+
+
+    .cp-signup-form-button {
+        margin: 20px auto;
+        display: block;
+    }
+}
