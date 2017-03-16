@@ -15,7 +15,7 @@ class SignupForm extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
+        this.props.userSignupRequest(this.state);
     }
 
     onChange(event) {
@@ -63,6 +63,10 @@ class SignupForm extends React.Component {
             </form>
         );
     }
+}
+
+SignupForm.propTypes = {
+    userSignupRequest: React.PropTypes.func.isRequired
 }
 
 export default SignupForm;

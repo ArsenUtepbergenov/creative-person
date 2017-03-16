@@ -61,4 +61,25 @@ router.post('/api/gallery', function(req, res) {
     })
 });
 
+router.post('/api/users', function(req, res) {
+
+    var pool = new pg.Pool(config);
+
+    pool.connect(function(err, client, done) {
+        if (err) {
+            return console.error('error fetching client from pool', err);
+        }
+        console.log(req.body.userName);
+        client.query('INSERT INTO users(name, email, password) VALUES($1, $2, $3)',
+                     [req.body.userName, req.body.userEmail,  req.body.userPassword]
+        );
+        done();
+        res.redirect('/signup');
+    });
+
+    pool.on('error', function(err, client) {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
 module.exports = router;
