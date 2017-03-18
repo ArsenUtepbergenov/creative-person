@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
+import rootReducer from './rootReducer';
 import App from './app.js';
 import Gallery from './gallery.js';
 import Home from './home.js';
@@ -17,8 +19,10 @@ import '../scss/index.scss';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 const store = createStore(
-    (state = {}) => state,
-    applyMiddleware(thunk)
+    rootReducer,
+    composeWithDevTools(
+        applyMiddleware(thunk)
+    )
 )
 
 // обращение к DOM и отрисовка в root компонента "Router"
