@@ -41,6 +41,28 @@ router.get('/api/gallery', function(req, res) {
     })
 });
 
+router.get('/api/music', function(req, res) {
+
+    var pool = new pg.Pool(config);
+
+    pool.connect(function(err, client, done) {
+        if (err) {
+            return console.error('error fetching client from pool', err);
+        }
+        client.query('SELECT * FROM music', function(err, result) {
+            if (err) {
+                return console.error('error running query', err);
+            }
+            res.send(result.rows);
+            done();
+        });
+    });
+
+    pool.on('error', function(err, client) {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
 router.post('/api/gallery', function(req, res) {
 
     var pool = new pg.Pool(config);

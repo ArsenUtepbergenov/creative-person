@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class NavigationBar extends React.Component {
     render() {
@@ -10,16 +10,16 @@ class NavigationBar extends React.Component {
                         <Link to='/' className="cp-nav-link">Home</Link>
                     </li>
                     <li className="cp-nav-link-wrapper">
-                        <Link to='/gallery' className="cp-nav-link">Gallery</Link>
+                        <Link to='gallery' className="cp-nav-link">Gallery</Link>
                     </li>
                     <li className="cp-nav-link-wrapper">
-                        <Link to='/photo' className="cp-nav-link">Photo</Link>
+                        <Link to='photo' className="cp-nav-link">Photo</Link>
                     </li>
                     <li className="cp-nav-link-wrapper">
-                        <Link to='/music' className="cp-nav-link">Music</Link>
+                        <Link to='music' className="cp-nav-link">Music</Link>
                     </li>
                     <li className="cp-nav-link-wrapper cp-nav-link-signup">
-                        <Link to='/signup' className="cp-nav-link">Sign up</Link>
+                        <Link to='signup' className="cp-nav-link">Sign up</Link>
                     </li>
                 </ul>
             </nav>
