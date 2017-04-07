@@ -1,4 +1,17 @@
 // общие стили для тегов
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dcdbdc;
+}
+
+h2 {
+    font-family: century gothic;
+}
+
 input {
     padding: 12px 20px;
     box-sizing: border-box;
@@ -8,14 +21,14 @@ input {
     outline: none;
 }
 
-input:focus {
-    border: 3px solid #555;
-}
-
 button {
     border: none;
     cursor: pointer;
     padding: 10px 25px;
-    background-color: #3d5590;
+    background-color: #869fde;
     color: #ffffff;
+}
+
+button:hover {
+    background-color: #3d5590;
 }

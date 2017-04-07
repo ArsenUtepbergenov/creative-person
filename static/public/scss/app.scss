@@ -9,7 +9,7 @@
 
     .cp-nav-link-wrapper {
         font-family: century gothic;
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
 
     .cp-nav-link {
@@ -18,11 +18,15 @@
         display: block;
         padding: 1em;
         color: white;
-        opacity: 0.75;
+    }
+
+    .cp-nav-link-active {
+        background-color: #ff8f21;
+        color: white;
     }
 
     .cp-nav-link:hover {
-        opacity: 1.0;
+        background-color: #e8994b;
     }
 
     .cp-nav-link-signup {

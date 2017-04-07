@@ -3,6 +3,7 @@
 .cp-search-picture {
     margin: auto;
     display: block;
+    margin-top: 20px;
 }
 
 .cp-picture-item {
@@ -10,6 +11,18 @@
     background-color: #ffffff;
     width: 400px;
     margin: 30px;
+}
+
+.cp-picture {
+
+}
+
+.cp-picture-title {
+
+}
+
+.cp-picture-author {
+
 }
 
 .cp-pictures-list {
@@ -22,42 +35,49 @@
 
 // modal form add picture
 .cp-form-add-picture {
-    border: 25px solid #7d95d2;
-    width: 500px;
+    width: 255px;
     margin: auto;
     margin-top: 20px;
 }
 
-.cp-form-add-picture-header {
-    background-color: #7d95d2;
-    padding: 20px 0;
-}
-
 .cp-form-add-picture-body {
     background-color: #ffffff;
-    padding: 10px;
-    height: 130px;
+    padding: 15px;
 }
 
-.cp-form-body-row {
-    display: block;
-    margin: 10px;
+.cp-form-body-field {
+    font-size: 1.1em;
+}
+
+.errors {
+    .cp-form-body-label {
+        color: #c55151;
+    }
+
+    .cp-form-body-input {
+        background-color: #fde6e6;
+        border-color: #ca8989;
+    }
+
+    .cp-form-body-span {
+        margin-left: 5px;
+        color: #c55151;
+    }
 }
 
 .cp-form-body-label {
     margin-right: 10px;
+    display: block;
+    padding: 5px;
 }
 
 .cp-form-body-input {
     margin: auto;
-}
-
-.cp-form-add-picture-footer {
-    background-color: #7d95d2;
-    padding: 10px 0;
+    margin: 5px;
 }
 
 .cp-form-add-picture-button {
-    margin: 10px auto;
+    margin: 15px auto;
     display: block;
+    background-color: #869fde;
 }
