@@ -8,8 +8,10 @@ body {
     background-color: #dcdbdc;
 }
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
     font-family: century gothic;
+    letter-spacing: 0.1em;
+    font-size: 1.0em;
 }
 
 input {

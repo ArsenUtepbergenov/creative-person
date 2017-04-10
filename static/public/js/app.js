@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NavigationBar from './navigation.js';
+import NavigationBar from './components/navigation.js';
+import Footer from './components/footer.js';
 import Gallery from './gallery.js';
 import Home from './home.js';
 import Photo from './photo.js';
@@ -18,6 +19,7 @@ class App extends React.Component {
                 <Route path='/photo' component={Photo} />
                 <Route path='/music' component={Music} />
                 <Route path='/signup' component={Signup} />
+                <Footer></Footer>
             </div>
         )
     }
