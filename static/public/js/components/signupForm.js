@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
                     </div>
                     <div className="cp-signup-form-input-wrapper">
                         <div className="cp-signup-form-input-icon-wrapper">
-                            <i className="fa fa-user-circle cp-signup-form-input-icon" aria-hidden="true"></i>
+                            <i className="fa fa-envelope-open cp-signup-form-input-icon" aria-hidden="true"></i>
                         </div>
                         <input name="userEmail"
                                type="email"
@@ -53,7 +53,7 @@ class SignupForm extends React.Component {
                     </div>
                     <div className="cp-signup-form-input-wrapper">
                         <div className="cp-signup-form-input-icon-wrapper">
-                            <i className="fa fa-user-circle cp-signup-form-input-icon" aria-hidden="true"></i>
+                            <i className="fa fa-key cp-signup-form-input-icon" aria-hidden="true"></i>
                         </div>
                         <input name="userPassword"
                                type="password"
@@ -65,7 +65,7 @@ class SignupForm extends React.Component {
                     </div>
                     <div className="cp-signup-form-input-wrapper">
                         <div className="cp-signup-form-input-icon-wrapper">
-                            <i className="fa fa-user-circle cp-signup-form-input-icon" aria-hidden="true"></i>
+                            <i className="fa fa-key cp-signup-form-input-icon" aria-hidden="true"></i>
                         </div>
                         <input name="userPasswordConfirmation"
                                type="password"

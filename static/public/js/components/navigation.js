@@ -7,19 +7,19 @@ class NavigationBar extends React.Component {
             <nav>
                 <ul className="cp-nav-menu">
                     <li className="cp-nav-link-wrapper">
-                        <NavLink to='/' className="cp-nav-link" activeClassName="cp-nav-link-active" exact>Home</NavLink>
+                        <NavLink to='/' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-home" aria-hidden="true"></i> Home</NavLink>
                     </li>
                     <li className="cp-nav-link-wrapper">
-                        <NavLink to='/gallery' className="cp-nav-link" activeClassName="cp-nav-link-active" exact>Gallery</NavLink>
+                        <NavLink to='/gallery' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-picture-o" aria-hidden="true"></i> Gallery</NavLink>
                     </li>
                     <li className="cp-nav-link-wrapper">
-                        <NavLink to='/photo' className="cp-nav-link" activeClassName="cp-nav-link-active" exact>Photo</NavLink>
+                        <NavLink to='/photo' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-camera" aria-hidden="true"></i> Photo</NavLink>
                     </li>
                     <li className="cp-nav-link-wrapper">
-                        <NavLink to='/music' className="cp-nav-link" activeClassName="cp-nav-link-active" exact>Music</NavLink>
+                        <NavLink to='/music' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-music" aria-hidden="true"></i> Music</NavLink>
                     </li>
                     <li className="cp-nav-link-wrapper cp-nav-link-signup">
-                        <NavLink to='/signup' className="cp-nav-link" activeClassName="cp-nav-link-active" exact>Sign up</NavLink>
+                        <NavLink to='/signup' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-sign-in" aria-hidden="true"></i> Sign up</NavLink>
                     </li>
                 </ul>
             </nav>

@@ -1,7 +1,7 @@
 // для всех стилей нужно писать префикс cp- от "Creative person"
 
 .cp-gallery {
-      
+
 }
 
 .cp-search-picture {
@@ -10,11 +10,20 @@
     margin-top: 20px;
 }
 
+.cp-pictures-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
 .cp-picture-item {
     text-align: center;
     background-color: #ffffff;
     width: 400px;
     margin: 30px;
+    cursor: pointer;
 }
 
 .cp-picture {
@@ -27,14 +36,6 @@
 
 .cp-picture-author {
 
-}
-
-.cp-pictures-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
 }
 
 // modal form add picture

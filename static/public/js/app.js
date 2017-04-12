@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NavigationBar from './components/navigation.js';
-import Footer from './components/footer.js';
-import Gallery from './gallery.js';
-import Home from './home.js';
-import Photo from './photo.js';
-import Music from './music.js';
-import Signup from './signup.js';
+import NavigationBar from './components/navigation';
+import Footer from './components/footer';
+import Gallery from './gallery';
+import Home from './home';
+import Photo from './photo';
+import Music from './music';
+import Signup from './signup';
 
 class App extends React.Component {
     render() {

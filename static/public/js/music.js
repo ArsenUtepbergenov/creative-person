@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import MusicList from './musicList.js';
+import MusicList from './components/musicList';
 import { getMusic } from './actions/musicActions';
 
 class Music extends React.Component {
