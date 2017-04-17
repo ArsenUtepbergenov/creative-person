@@ -1,22 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { savePicture } from '../actions/galleryActions';
+import { _getId } from '../utilities/utilities';
 
-export class Picture extends React.Component {
-    // обязательный метод для реализации, возвращает, что необходимо отрисовать
-    render() {
-        return (
-            // вместо class применяется className для совместимости
-            <div className="cp-picture-item">
-                {/* this.props обращение к полученному свойству */}
-                <img src={ require('../../img/picture.jpg') } alt="picture" className="cp-picture" width="100%"></img>
-                <h3 className="cp-picture-title">{ this.props.title }</h3>
-                <p className="cp-picture-author">{ this.props.author }</p>
-            </div>
-        );
-    }
-}
-
-// Компонент "форма добавления картины"
 class PictureForm extends React.Component {
     constructor(props) {
         super(props);
@@ -50,10 +37,14 @@ class PictureForm extends React.Component {
         if (this.state.inputAuthor === '') errors.inputAuthor = "Cat't be empty";
         this.setState({ errors });
 
-        // axios.post('/api/gallery', {
-        //     title: this.state.inputTitle,
-        //     author: this.state.inputAuthor
-        // });
+        const isValid = Object.keys(errors).length === 0;
+
+        if (isValid) {
+            let id = _getId(1, 100);
+            const title = this.state.inputTitle;
+            const author = this.state.inputAuthor;
+            this.props.savePicture({ id, title, author });
+        }
     }
 
     render() {
@@ -89,4 +80,4 @@ class PictureForm extends React.Component {
     }
 }
 
-export default PictureForm;
+export default connect(null, { savePicture })(PictureForm);

@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import music from './music';
+import music from './musicReducer';
+import pictures from './galleryReducer';
 
 export default combineReducers({
-    music
+    music,
+    pictures
 });

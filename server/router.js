@@ -71,8 +71,8 @@ router.post('/api/gallery', function(req, res) {
         if (err) {
             return console.error('error fetching client from pool', err);
         }
-        client.query('INSERT INTO gallery(title, author) VALUES($1, $2)',
-                     [req.body.title, req.body.author]
+        client.query('INSERT INTO gallery(id, title, author) VALUES($1, $2, $3)',
+                     [req.body.id, req.body.title, req.body.author]
         );
         done();
         res.redirect('/gallery');
