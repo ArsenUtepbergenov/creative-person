@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import NavigationBar from './components/navigation';
+import TopBar from './components/topBar';
 import Footer from './components/footer';
 import Gallery from './gallery';
 import Home from './home';
@@ -13,6 +14,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <TopBar></TopBar>
                 <NavigationBar></NavigationBar>
                 <Route exact path='/' component={Home} />
                 <Route path='/gallery' component={Gallery} />

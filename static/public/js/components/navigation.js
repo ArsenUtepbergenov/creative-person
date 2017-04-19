@@ -17,10 +17,7 @@ class NavigationBar extends React.Component {
                     </li>
                     <li className="cp-nav-link-wrapper">
                         <NavLink to='/music' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-music" aria-hidden="true"></i> Music</NavLink>
-                    </li>
-                    <li className="cp-nav-link-wrapper cp-nav-link-signup">
-                        <NavLink to='/signup' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-sign-in" aria-hidden="true"></i> Sign up</NavLink>
-                    </li>
+                    </li>                
                 </ul>
             </nav>
         )
