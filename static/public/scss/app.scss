@@ -1,4 +1,6 @@
-$color-app: #86af16;
+$color-app: #405e94;
+$color-nav-link: #000000;
+$color-nav-link-hover: #587399;
 
 .cp-nav-menu {
     list-style: none;
@@ -20,15 +22,16 @@ $color-app: #86af16;
         display: block;
         padding: 1em;
         color: white;
+        transition: 0.5s;
     }
 
     .cp-nav-link-active {
-        background-color: #000000;
+        background-color: $color-nav-link;
         color: white;
     }
 
     .cp-nav-link:hover {
-        background-color: #2b3807;
+        background-color: $color-nav-link-hover;
     }
 
     .cp-nav-link-signup {
@@ -62,7 +65,7 @@ $color-app: #86af16;
     }
 
     .cp-footer-content-item {
-        background-color: #a6ca45;
+        background-color: #6080bb;
         padding: 15px;
         margin-top: 10px;
     }

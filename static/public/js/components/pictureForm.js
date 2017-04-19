@@ -49,33 +49,35 @@ class PictureForm extends React.Component {
 
     render() {
         return (
-            <form className="cp-form-add-picture" onSubmit={this.addPicture}>
-                <div className="cp-form-add-picture-body">
-                    <div className={classnames('cp-form-body-field', { errors: !!this.state.errors.inputTitle }) }>
-                        <label className="cp-form-body-label" htmlFor="inputTitle">Title:</label>
-                        <input className="cp-form-body-input"
-                               name="inputTitle"
-                               value={ this.state.inputTitle }
-                               onChange={ this.changeDataPicture }
-                               id="inputTitle"
-                        />
-                        <span className="cp-form-body-span">{ this.state.errors.inputTitle }</span>
-                    </div>
+            <div className="cp-modal-form">
+                <form className="cp-form-add-picture" onSubmit={this.addPicture}>
+                    <div className="cp-form-add-picture-body">
+                        <div className={classnames('cp-form-body-field', { errors: !!this.state.errors.inputTitle }) }>
+                            <label className="cp-form-body-label" htmlFor="inputTitle">Title:</label>
+                            <input className="cp-form-body-input"
+                                   name="inputTitle"
+                                   value={ this.state.inputTitle }
+                                   onChange={ this.changeDataPicture }
+                                   id="inputTitle"
+                            />
+                            <span className="cp-form-body-span">{ this.state.errors.inputTitle }</span>
+                        </div>
 
-                    <div className={classnames('cp-form-body-field', { errors: !!this.state.errors.inputAuthor }) }>
-                        <label className="cp-form-body-label" htmlFor="inputAuthor">Author:</label>
-                        <input className="cp-form-body-input"
-                               name="inputAuthor"
-                               value={ this.state.inputAuthor }
-                               onChange={ this.changeDataPicture }
-                               id="inputAuthor"
-                        />
-                    <span className="cp-form-body-span">{ this.state.errors.inputAuthor }</span>
-                    </div>
+                        <div className={classnames('cp-form-body-field', { errors: !!this.state.errors.inputAuthor }) }>
+                            <label className="cp-form-body-label" htmlFor="inputAuthor">Author:</label>
+                            <input className="cp-form-body-input"
+                                   name="inputAuthor"
+                                   value={ this.state.inputAuthor }
+                                   onChange={ this.changeDataPicture }
+                                   id="inputAuthor"
+                            />
+                        <span className="cp-form-body-span">{ this.state.errors.inputAuthor }</span>
+                        </div>
 
-                    <button className="cp-form-add-picture-button" type="submit">Add picture</button>
-                </div>
-            </form>
+                        <button className="cp-form-add-picture-button" type="submit">Add picture</button>
+                    </div>
+                </form>
+            </div>        
         );
     }
 }

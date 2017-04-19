@@ -26,7 +26,28 @@
     cursor: pointer;
 }
 
-// modal form add picture
+// button add picture on gallery page
+.cp-gallery-add-picture-button {
+    text-align: center;
+    background-color: #cccccc;
+    width: 400px;
+    margin: 30px;
+    cursor: pointer;
+    margin: 0 auto;
+    height: 326px;
+    display: flex;
+    transition: 0.5s;
+
+    .cp-gallery-add-picture-button-icon {
+        margin: auto;
+    }
+}
+
+.cp-gallery-add-picture-button:hover {
+    color: white;
+}
+
+// madal form add picture content
 .cp-form-add-picture {
     width: 255px;
     margin: auto;
