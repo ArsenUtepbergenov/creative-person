@@ -104,4 +104,24 @@ router.post('/api/users', function(req, res) {
     })
 });
 
+router.delete('/api/gallery/:id', function(req, res) {
+
+    var pool = new pg.Pool(config);
+
+    pool.connect(function(err, client, done) {
+        if (err) {
+            return console.error('error fetching client from pool', err);
+        }
+        client.query('DELETE FROM gallery WHERE id = $1',
+                     [req.params.id]
+        );
+        done();
+        res.send('200');
+    });
+
+    pool.on('error', function(err, client) {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
 module.exports = router;

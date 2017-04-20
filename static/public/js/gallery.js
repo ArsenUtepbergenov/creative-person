@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PictureForm from './components/pictureForm';
 import PicturesCollection from './components/picturesCollection';
 
-import { getPictures } from './actions/galleryActions';
+import { getPictures, deletePicture } from './actions/galleryActions';
 
 class Gallery extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Gallery extends React.Component {
     render() {
         return (
             <div className="cp-gallery">
-                <PicturesCollection pictures={ this.props.pictures } />
+                <PicturesCollection pictures={ this.props.pictures } deletePicture={this.props.deletePicture} />
                 <div>
                     <div className="cp-gallery-add-picture-button" onClick={ this.onClick }>
                         <i className="fa fa-plus fa-5x cp-gallery-add-picture-button-icon" aria-hidden="true"></i>
@@ -48,7 +48,8 @@ class Gallery extends React.Component {
 
 Gallery.propTypes = {
     pictures: React.PropTypes.array.isRequired,
-    getPictures: React.PropTypes.func.isRequired
+    getPictures: React.PropTypes.func.isRequired,
+    deletePicture: React.PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
@@ -57,4 +58,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getPictures })(Gallery);
+export default connect(mapStateToProps, { getPictures, deletePicture })(Gallery);

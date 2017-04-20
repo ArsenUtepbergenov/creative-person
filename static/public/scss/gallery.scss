@@ -24,6 +24,33 @@
     width: 400px;
     margin: 30px;
     cursor: pointer;
+
+    .cp-picture-button {
+        padding: 8px 10px;
+        margin: 10px auto;
+    }
+
+    .cp-picture-delete-button {
+        @extend .cp-picture-button;
+        background-color: #ff5454;
+    }
+
+    .cp-picture-update-button {
+        @extend .cp-picture-button;
+        background-color: #82c774;
+    }
+
+    .cp-picture-update-button:hover {
+        background-color: #50a23f;
+    }
+
+    .cp-picture-delete-button:hover {
+        background-color: #de2121;
+    }
+
+    .cp-picture-buttons {
+        display: inline-flex;
+    }
 }
 
 // button add picture on gallery page
