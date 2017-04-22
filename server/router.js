@@ -75,7 +75,7 @@ router.post('/api/gallery', function(req, res) {
                      [req.body.id, req.body.title, req.body.author]
         );
         done();
-        res.redirect('/gallery');
+        res.send('201');
     });
 
     pool.on('error', function(err, client) {
@@ -96,7 +96,27 @@ router.post('/api/users', function(req, res) {
                      [req.body.userName, req.body.userEmail,  req.body.userPassword]
         );
         done();
-        res.redirect('/signup');
+        res.send('201');
+    });
+
+    pool.on('error', function(err, client) {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
+router.put('/api/gallery/:id', function(req, res) {
+
+    var pool = new pg.Pool(config);
+
+    pool.connect(function(err, client, done) {
+        if (err) {
+            return console.error('error fetching client from pool', err);
+        }
+        client.query('UPDATE gallery SET title = $1, author = $2, WHERE id = $3',
+                     [req.body.title, req.body.author, req.params.id]
+        );
+        done();
+        res.send('200');
     });
 
     pool.on('error', function(err, client) {

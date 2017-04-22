@@ -1,9 +1,4 @@
 // общие стили для тегов
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background-color: #dcdbdc;
 }
@@ -28,6 +23,7 @@ button {
     background-color: #869fde;
     color: #ffffff;
     outline: none;
+    transition: 0.3s;
 }
 
 button:hover {

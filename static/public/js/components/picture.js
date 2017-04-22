@@ -8,7 +8,7 @@ export default function Picture({ picture, deletePicture }) {
             <p className="cp-picture-author">{ picture.author }</p>
 
             <div className="cp-picture-buttons">
-                <button className="cp-picture-update-button">Update</button>
+                <button className="cp-picture-update-button">Edit</button>
                 <div className="cp-vertical-delimiter"></div>
                 <button className="cp-picture-delete-button" onClick={() => deletePicture(picture.id)}>Delete</button>
             </div>

@@ -1,7 +1,10 @@
 // необходимо импортировать все файлы стилей (.scss)
+// css styles from libraries
+@import 'reset';
+@import 'font-awesome.min';
+// scss
 @import 'templates';
 @import 'app';
 @import 'gallery';
 @import 'signup';
 @import 'common';
-@import 'font-awesome.min';
