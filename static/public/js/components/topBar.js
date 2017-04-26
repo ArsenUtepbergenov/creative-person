@@ -6,7 +6,7 @@ class TopBar extends React.Component {
         return (
             <div className="cp-top-bar">
                 <div className="cp-top-bar-logo">
-                    <img src={ require('../../img/logo.png') } alt="logo" className="cp-logo-img" width="120px" height="90px"></img>
+                    <img src={ require('../../img/logo.png') } alt="logo" className="cp-logo-img" width="90px" height="80px"></img>
                 </div>
                 <div className="cp-top-bar-menu">
                     <input className="cp-top-bar-input-search"></input>

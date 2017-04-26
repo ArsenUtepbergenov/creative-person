@@ -1,0 +1,17 @@
+$photos-half-width: 100% / 2;
+
+.cp-photos {
+    max-width: 1000px;
+    padding: 15px;
+    margin: auto;
+
+    .cp-photos-half {
+        padding: 0 8px;
+        width: $photos-half-width;
+        float: left;
+    }
+
+    .cp-photo {
+        margin-bottom: 10px;
+    }
+}

@@ -1,7 +1,8 @@
 $color-app: #405e94;
-$color-nav-link: #000000;
+$color-nav-link: #0a0e16;
 $color-nav-link-hover: #587399;
-$color-top-bar: #000000;
+$color-top-bar: #0a0e16;
+$color-footer: #0a0e16;
 $color-button-signup: #405e94;
 $color-button-signup-hover: #6080bb;
 
@@ -64,8 +65,6 @@ $color-button-signup-hover: #6080bb;
             margin: auto;
         }
     }
-
-
 }
 
 .cp-nav-menu {
@@ -104,6 +103,7 @@ $color-button-signup-hover: #6080bb;
     bottom: 0;
     width: 100%;
     margin-top: 20px;
+    display: inline-block;
 
     .cp-footer-content {
         display: flex;
@@ -115,7 +115,7 @@ $color-button-signup-hover: #6080bb;
     }
 
     .cp-footer-background-img {
-        background: url(../img/footer-img.png) no-repeat center black;
+        background: url(../img/footer-img.png) no-repeat center $color-footer;
         background-size: contain;
         height: 150px;
     }

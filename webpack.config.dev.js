@@ -47,6 +47,11 @@ export default {
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=10000'
+            },
+            {
+                test: /\.mp3$/,
+                include: path.join(__dirname, 'static/public/mp3'),
+                loader: 'file-loader'
             }
         ]
     },

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import MusicList from './components/musicList';
 import { getMusic } from './actions/musicActions';
 
+import testMusic from '../mp3/folk.mp3';
+
 class Music extends React.Component {
     componentDidMount() {
         this.props.getMusic();
@@ -14,6 +16,10 @@ class Music extends React.Component {
             <div>
                 <h3>Music page</h3>
                 <MusicList music={ this.props.music } />
+                <audio controls>
+                    <source src= { testMusic } type="audio/mpeg"></source>
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         );
     }
