@@ -3,8 +3,10 @@ $color-nav-link: #0a0e16;
 $color-nav-link-hover: #587399;
 $color-top-bar: #0a0e16;
 $color-footer: #0a0e16;
-$color-button-signup: #405e94;
-$color-button-signup-hover: #6080bb;
+$color-search-button: #405e94;
+$color-search-button-hover: #6080bb;
+$color-register-signin: #405e94;
+$color-register-signin-hover: #6080bb;
 
 .cp-link {
     text-decoration: none;
@@ -38,20 +40,20 @@ $color-button-signup-hover: #6080bb;
         .cp-top-bar-button-search {
             padding: 8.5px 15px;
             transition: 0.5s;
-            background-color: $color-button-signup;
+            background-color: $color-search-button;
         }
 
         .cp-top-bar-button-search:hover {
             padding: 8.5px 15px;
-            background-color: $color-button-signup-hover;
+            background-color: $color-search-button-hover;
         }
 
-        .cp-top-bar-link-signup {
+        .cp-top-bar-link-signin, .cp-top-bar-link-register {
             @extend .cp-link;
         }
 
-        .cp-top-bar-link-signup:hover {
-            color: $color-button-signup-hover;
+        .cp-top-bar-link-signin:hover, .cp-top-bar-link-register:hover {
+            color: $color-register-signin-hover;
         }
     }
 

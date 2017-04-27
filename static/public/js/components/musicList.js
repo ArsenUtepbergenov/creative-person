@@ -2,11 +2,17 @@ import React from 'react';
 
 export default function MusicList({ music }) {
     const emptyMessage = (
-        <p>There are not music yet in your collection</p>
+        <p>There are not music yet in your list</p>
     );
 
     const musicList = (
-        <p>Music list</p>
+        <ul>
+            {
+                music.map(track => {
+                    return <li key={ track.id }>{ track.name }</li>;
+                })
+            }
+        </ul>
     );
 
     return (

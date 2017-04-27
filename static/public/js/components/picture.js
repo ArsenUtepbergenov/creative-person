@@ -1,9 +1,11 @@
 import React from 'react';
 
+import testPicture from '../../img/picture.jpg';
+
 export default function Picture({ picture, deletePicture }) {
     return (
         <div className="cp-picture-item">
-            <img src={ require('../../img/picture.jpg') } alt="picture" className="cp-picture" width="100%"></img>
+            <img src={ testPicture } alt="picture" className="cp-picture" width="100%"></img>
             <h3 className="cp-picture-title">{ picture.title }</h3>
             <p className="cp-picture-author">{ picture.author }</p>
 

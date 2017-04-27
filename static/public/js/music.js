@@ -13,7 +13,7 @@ class Music extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="cp-music">
                 <h3>Music page</h3>
                 <MusicList music={ this.props.music } />
                 <audio controls>

@@ -8,7 +8,8 @@ import Gallery from './gallery';
 import Home from './home';
 import Photo from './photo';
 import Music from './music';
-import Signup from './signup';
+import Register from './register';
+import Signin from './signin';
 
 class App extends React.Component {
     render() {
@@ -20,7 +21,8 @@ class App extends React.Component {
                 <Route path='/gallery' component={Gallery} />
                 <Route path='/photo' component={Photo} />
                 <Route path='/music' component={Music} />
-                <Route path='/signup' component={Signup} />
+                <Route path='/register' component={Register} />
+                <Route path='/signin' component={Signin} />
                 <Footer></Footer>
             </div>
         )
