@@ -8,19 +8,25 @@ class Footer extends React.Component {
                 <div className="cp-footer-content">
                     <div className="cp-footer-more-about">
                         <h3>More about creative person</h3>
+                        <hr></hr>
                         <p>The best site in the world</p>
                         <span>Anrey Z.</span>
                     </div>
                     <div className="cp-footer-keep-connected">
                         <h3>Keep connected</h3>
+                        <hr></hr>
                         <div className="cp-footer-social-links">
                             Social links
                         </div>
                     </div>
                     <div className="cp-footer-contact-information">
                         <h3>Contact information</h3>
+                        <hr></hr>
                         <p>Contact</p>
                     </div>
+                </div>
+                <div className="cp-copyright">
+                    <p className="cp-copyright-content">&copy; 2017 All Rights Reserved.</p>
                 </div>
             </footer>
         )

@@ -27,7 +27,7 @@ class Gallery extends React.Component {
     render() {
         return (
             <div className="cp-gallery">
-                <PicturesCollection pictures={ this.props.pictures } deletePicture={this.props.deletePicture} />
+                <PicturesCollection pictures={ this.props.pictures } deletePicture={ this.props.deletePicture } />
                 <div>
                     <div className="cp-gallery-add-picture-button" onClick={ this.onClick }>
                         <i className="fa fa-plus fa-5x cp-gallery-add-picture-button-icon" aria-hidden="true"></i>
