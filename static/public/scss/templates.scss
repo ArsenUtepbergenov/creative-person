@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.1em;
 }
 
+select {
+    cursor: pointer;
+}
+
 input {
     padding: 12px 20px;
     box-sizing: border-box;

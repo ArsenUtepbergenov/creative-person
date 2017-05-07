@@ -28,6 +28,7 @@ class PictureSingle extends React.Component {
                     <div className="cp-info">
                         <p>Title: { picture[0].title }</p>
                         <p>Author: { picture[0].author }</p>
+                        <p>Rating: { picture[0].rating }</p>
                     </div>
                 </div>
             </div>

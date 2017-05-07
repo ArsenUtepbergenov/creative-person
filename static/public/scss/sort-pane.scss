@@ -10,6 +10,7 @@
 
     .cp-sort-pane-caption {
         display: inline-flex;
+        margin-right: 7px;
 
         .cp-sort-pane-caption-text {
             margin: auto;
@@ -19,6 +20,11 @@
     .cp-sort-pane-rating {
         padding: 5px;
         background-color: #82c774;
-        color: white;
+        display: flex;
+
+        .cp-sort-pane-rating-caption {
+            color: white;
+            margin: auto;
+        }
     }
 }

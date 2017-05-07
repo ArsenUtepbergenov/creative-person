@@ -10,7 +10,7 @@ function SortPane({ ratings = [], onRatingChange}) {
                 <h3 className="cp-sort-pane-caption-text">Filters:</h3>
             </div>
             <div className="cp-sort-pane-rating">
-                Rating:
+                <span className="cp-sort-pane-rating-caption">Rating:</span>
                 <select
                     onChange={ event => onRatingChange(event.target.value) }
                     >
