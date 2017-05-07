@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import PictureForm from './components/pictureForm';
 import PicturesCollection from './components/picturesCollection';
+import SortPane from './components/sortPane';
 
 import { getPictures, deletePicture } from './actions/galleryActions';
 
@@ -11,7 +12,8 @@ class Gallery extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            formAddPictureVisible: false
+            formAddPictureVisible: false,
+            ratings: [1, 2, 3, 4, 5]
         };
         this.onClick = this.onClick.bind(this);
     }
@@ -27,6 +29,7 @@ class Gallery extends React.Component {
     render() {
         return (
             <div className="cp-gallery">
+                <SortPane ratings = { this.state.ratings } ></SortPane>
                 <PicturesCollection pictures={ this.props.pictures } deletePicture={ this.props.deletePicture } />
                 <div>
                     <div className="cp-gallery-add-picture-button" onClick={ this.onClick }>
@@ -52,10 +55,23 @@ Gallery.propTypes = {
     deletePicture: React.PropTypes.func.isRequired
 }
 
+// Getting visible pictures from state.
+function getVisiblePictures(rating, pictures) {
+    return pictures.filter(picture => {
+        return (
+            (rating == 'all' || rating == picture.rating)
+        );
+    });
+}
+
 function mapStateToProps(state) {
+    const { sorts, pictures } = state;
+    // return {
+    //     pictures: state.pictures
+    // }
     return {
-        pictures: state.pictures
-    }
+        pictures: getVisiblePictures(sorts.rating, pictures),
+    };
 }
 
 export default connect(mapStateToProps, { getPictures, deletePicture })(Gallery);

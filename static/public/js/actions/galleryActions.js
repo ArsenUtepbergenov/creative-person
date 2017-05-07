@@ -3,6 +3,14 @@ import axios from 'axios';
 export const SET_PICTURES = 'SET_PICTURES';
 export const ADD_PICTURE = 'ADD_PICTURE';
 export const DELETE_PICTURE = 'DELETE_PICTURE';
+export const SET_RATING = 'SET_RATING';
+
+export function ratingChange(rating) {
+    return {
+        type: SET_RATING,
+        rating
+    }
+}
 
 export function setPictures(pictures) {
     return {
@@ -22,6 +30,12 @@ export function pictureDeleted(id) {
     return {
         type: DELETE_PICTURE,
         id
+    }
+}
+
+export function onRatingChange(rating) {
+    return dispatch => {
+        return dispatch(ratingChange(rating));
     }
 }
 

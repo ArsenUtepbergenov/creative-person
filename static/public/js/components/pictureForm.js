@@ -41,9 +41,10 @@ class PictureForm extends React.Component {
 
         if (isValid) {
             let id = _getId(1, 100);
+            let rating = 1;
             const title = this.state.inputTitle;
             const author = this.state.inputAuthor;
-            this.props.savePicture({ id, title, author });
+            this.props.savePicture({ id, title, author, rating });
         }
     }
 
@@ -77,7 +78,7 @@ class PictureForm extends React.Component {
                         <button className="cp-form-add-picture-button" type="submit">Add picture</button>
                     </div>
                 </form>
-            </div>        
+            </div>
         );
     }
 }
