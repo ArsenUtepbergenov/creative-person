@@ -9,7 +9,7 @@ export default function Picture({ picture, deletePicture }) {
             <img src={ testPicture } alt="picture" className="cp-picture" width="100%"></img>
             <NavLink to={`/picture/${picture.id}`} className="cp-link-picture"><h3 className="cp-picture-title">{ picture.title }</h3></NavLink>
             <p className="cp-picture-author">{ picture.author }</p>
-            <p className="cp-picture-rating">Rating: { picture.rating }</p>        
+            <p className="cp-picture-rating">Rating: { picture.rating }</p>
 
             <div className="cp-picture-buttons">
                 <button className="cp-picture-update-button">Edit</button>

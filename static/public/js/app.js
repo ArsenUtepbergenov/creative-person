@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NavigationBar from './components/navigation';
-import TopBar from './components/topBar';
+import Header from './components/header';
 import Footer from './components/footer';
 import PictureSingle from './components/pictureSingle';
 import Gallery from './gallery';
@@ -16,8 +15,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <TopBar></TopBar>
-                <NavigationBar></NavigationBar>
+                <Header></Header>
                 <Route exact path='/' component={Home} />
                 <Route path='/gallery' component={Gallery} />
                 <Route path='/picture/:id' component={PictureSingle} />

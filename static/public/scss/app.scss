@@ -1,22 +1,22 @@
-$top-bar-height: 70px;
-$cover-height: 300px;
-$color-app: #405e94;
-$color-nav-link: #0a0e16;
-$color-nav-link-hover: #587399;
-$color-top-bar: #0a0e16;
-$color-footer: #0a0e16;
-$color-search-button: #889fca;
-$color-search-button-hover: #637ca9;
-$color-register-signin: #405e94;
-$color-register-signin-hover: #889fca;
+$header-height: 70px;
+$cover-height: 550px;
+$color-app: rgba(0, 0, 0, 0.1);
+$color-navigation: rgb(26, 40, 63);
+$color-nav-link: rgba(0, 0, 0, 0.2);
+$color-nav-link-hover: rgba(0, 0, 0, 0.4);
+$color-footer: #405e94;
+$color-search-button: rgba(127, 181, 116, 0.9);
+$color-search-button-hover: rgba(127, 181, 116, 0.5);
+$color-register-signin-hover: rgba(127, 181, 116, 0.9);
 
 .cp-link {
     text-decoration: none;
     cursor: pointer;
     display: block;
-    padding: 1em;
+    padding: 1.5em;
     color: white;
     transition: 0.3s;
+    height: inherit;
 }
 
 .cp-background-cover {
@@ -25,12 +25,54 @@ $color-register-signin-hover: #889fca;
     height: $cover-height;
 }
 
-.cp-top-bar {
-    position: relative;
+// header
+.cp-header {
     background-color: $color-app;
-    height: $top-bar-height;
+    height: $header-height;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 
-    .cp-top-bar-menu {
+    .cp-header-navigation {
+        width: 1000px;
+
+        .cp-nav {
+            height: 100%;
+        }
+
+        .cp-nav-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: nowrap;
+            height: inherit;
+
+            .cp-nav-link-wrapper {
+                font-family: century gothic;
+                width: 100%;
+                text-align: center;
+                height: inherit;
+            }
+
+            .cp-nav-link {
+                @extend .cp-link;
+            }
+
+            .cp-nav-link-active {
+                background-color: $color-nav-link;
+                color: white;
+            }
+
+            .cp-nav-link:hover {
+                background-color: $color-nav-link-hover;
+            }
+        }
+    }
+
+
+    .cp-header-menu {
         display: flex;
         justify-content: flex-end;
         flex-direction: row;
@@ -39,26 +81,31 @@ $color-register-signin-hover: #889fca;
         color: white;
         height: 100%;
 
-        .cp-top-bar-input-search {
-            padding: 6px;
+        .cp-header-input-search {
+            padding: 8px;
             border: none;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding-left: 10px;
         }
 
-        .cp-top-bar-button-search {
-            padding: 7.5px 10px;
+        .cp-header-button-search {
+            padding: 9.5px;
             transition: 0.5s;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
             background-color: $color-search-button;
         }
 
-        .cp-top-bar-button-search:hover {
+        .cp-header-button-search:hover {
             background-color: $color-search-button-hover;
         }
 
-        .cp-top-bar-link-signin, .cp-top-bar-link-register {
+        .cp-header-link-signin, .cp-header-link-register {
             @extend .cp-link;
         }
 
-        .cp-top-bar-link-signin::after, .cp-top-bar-link-register::after {
+        .cp-header-link-signin::after, .cp-header-link-register::after {
             display: block;
             content: "";
             height: 2px;
@@ -67,16 +114,15 @@ $color-register-signin-hover: #889fca;
             transition: width 0.3s ease-in-out;
         }
 
-        .cp-top-bar-link-signin:hover::after, .cp-top-bar-link-register:hover::after {
+        .cp-header-link-signin:hover::after, .cp-header-link-register:hover::after {
             width: 100%;
         }
     }
 
-    .cp-top-bar-logo {
-        position: absolute;
-        left: 60px;
+    .cp-header-logo {
         height: 100%;
         display: flex;
+        margin-left: 50px;
 
         .cp-logo-img {
             margin: auto;
@@ -84,36 +130,9 @@ $color-register-signin-hover: #889fca;
     }
 }
 
-.cp-nav-menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: $color-app;
-
-    .cp-nav-link-wrapper {
-        font-family: century gothic;
-        font-size: 1.1em;
-    }
-
-    .cp-nav-link {
-        @extend .cp-link;
-    }
-
-    .cp-nav-link-active {
-        background-color: $color-nav-link;
-        color: white;
-    }
-
-    .cp-nav-link:hover {
-        background-color: $color-nav-link-hover;
-    }
-}
-
+// footer
 .cp-footer {
-    background-color: $color-app;
+    background-color: $color-footer;
     height: 300px;
     // position: fixed;
     left: 0;
@@ -132,7 +151,7 @@ $color-register-signin-hover: #889fca;
     }
 
     .cp-footer-background-img {
-        background: url(../img/footer-img.png) no-repeat center $color-footer;
+        background: url(../img/footer-img.png) no-repeat center black;
         background-size: contain;
         height: 150px;
 

@@ -55,7 +55,6 @@ Gallery.propTypes = {
     deletePicture: React.PropTypes.func.isRequired
 }
 
-// Getting visible pictures from state.
 function getVisiblePictures(rating, pictures) {
     return pictures.filter(picture => {
         return (
@@ -66,9 +65,6 @@ function getVisiblePictures(rating, pictures) {
 
 function mapStateToProps(state) {
     const { sorts, pictures } = state;
-    // return {
-    //     pictures: state.pictures
-    // }
     return {
         pictures: getVisiblePictures(sorts.rating, pictures),
     };

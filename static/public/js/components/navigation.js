@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 class NavigationBar extends React.Component {
     render() {
         return (
-            <nav>
+            <nav className="cp-nav">
                 <ul className="cp-nav-menu">
                     <li className="cp-nav-link-wrapper">
                         <NavLink to='/' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-home" aria-hidden="true"></i> Home</NavLink>
