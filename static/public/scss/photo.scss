@@ -1,13 +1,12 @@
-$photos-half-width: 100% / 2;
+$photos-part-width: 100% / 3;
 
 .cp-photos {
-    max-width: 1000px;
     padding: 15px;
     margin: auto;
 
-    .cp-photos-half {
+    .cp-photos-part {
         padding: 0 8px;
-        width: $photos-half-width;
+        width: $photos-part-width;
         float: left;
     }
 

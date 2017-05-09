@@ -3,3 +3,24 @@
     margin: auto;
     max-width: 1000px;
 }
+
+.cp-page-numbers {
+    list-style: none;
+    display: flex;
+
+    .cp-page-numbers-item {
+        padding: 5px 10px;
+        background-color: #78ac78;
+        color: white;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .cp-page-numbers-item:hover {
+        background-color: #a2ca6d;
+    }
+
+    .cp-page-numbers-item-active {
+        background-color: #ff6868;
+    }
+}

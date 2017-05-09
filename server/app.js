@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import router from './router';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
@@ -25,7 +26,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(jsonParser);
 app.use(urlencodedParser);
 
-app.use(require('./router.js'));
+app.use(router);
 
 app.use(express.static(path.join(__dirname, '../static')));
 

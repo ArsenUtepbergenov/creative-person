@@ -1,5 +1,6 @@
-$form-width: 400px;
+$form-width: 350px;
 $form-background-color: #ffffff;
+$color-border-input: #78ac78;
 
 .cp-form {
     background-color: $form-background-color;
@@ -7,23 +8,22 @@ $form-background-color: #ffffff;
     margin: 30px auto;
     padding: 20px;
     text-align: center;
+    border: 15px solid rgba(0, 0, 0, 0.6);
 }
 
 .cp-form-body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: space-around;
-    margin: 20px;
 }
 
 .cp-form-input {
-    padding-left: 46px;
+    padding-left: 50px;
+    border-color: $color-border-input;
 }
 
 .cp-form-input-wrapper {
     position: relative;
-    margin: 5px auto;
+    margin: 7px auto;
 }
 
 .cp-form-input-icon-wrapper {
@@ -32,7 +32,7 @@ $form-background-color: #ffffff;
     top: 3px;
     width: 40px;
     height: 42px;
-    background-color: #cccccc;
+    background-color: $color-border-input;
     display: flex;
 }
 
@@ -42,7 +42,7 @@ $form-background-color: #ffffff;
 }
 
 .cp-form-button {
-    margin: 20px auto;
+    margin: 20px auto 15px auto;
     display: block;
 }
 

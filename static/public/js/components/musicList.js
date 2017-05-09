@@ -9,7 +9,14 @@ export default function MusicList({ music }) {
         <ul>
             {
                 music.map(track => {
-                    return <li key={ track.id }>{ track.name }</li>;
+                    return <li key={ track.id }>
+                        {
+                            <audio controls>
+                                <source src={ require(`../../mp3/${track.name}.mp3`) } type="audio/mpeg"></source>
+                                Your browser does not support the audio element.
+                            </audio>
+                        }
+                    </li>;
                 })
             }
         </ul>

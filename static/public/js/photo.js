@@ -10,13 +10,17 @@ class Photo extends React.Component {
         return (
             <div>
                 <div className="cp-photos">
-                    <div className="cp-photos-half">
+                    <div className="cp-photos-part">
                         <img src={ photo1 } alt="photo" className="cp-photo" width="100%"></img>
                         <img src={ photo2 } alt="photo" className="cp-photo" width="100%"></img>
                     </div>
-                    <div className="cp-photos-half">
+                    <div className="cp-photos-part">
                         <img src={ photo2 } alt="photo" className="cp-photo" width="100%"></img>
                         <img src={ photo3 } alt="photo" className="cp-photo" width="100%"></img>
+                    </div>
+                    <div className="cp-photos-part">
+                        <img src={ photo3 } alt="photo" className="cp-photo" width="100%"></img>
+                        <img src={ photo1 } alt="photo" className="cp-photo" width="100%"></img>
                     </div>
                 </div>
             </div>
