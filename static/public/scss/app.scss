@@ -77,7 +77,7 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
         justify-content: flex-end;
         flex-direction: row;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         color: white;
         height: 100%;
 
@@ -132,14 +132,13 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
 
 // footer
 .cp-footer {
-    background-color: $color-footer;
-    height: 300px;
-    // position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin-top: 20px;
-    display: inline-block;
+    margin-top: 15px;
+
+    .cp-footer-background-img {
+        background: url(../img/cover2.jpg) no-repeat center;
+        background-size: cover;
+        height: 300px;
+    }
 
     .cp-footer-content {
         display: flex;
@@ -148,21 +147,9 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
         align-items: flex-start;
         flex-wrap: wrap;
         color: white;
+        background-color: $color-app;
     }
 
-    .cp-footer-background-img {
-        background: url(../img/footer-img.png) no-repeat center black;
-        background-size: contain;
-        height: 150px;
-
-        @include tablet {
-            background-size: cover;
-        }
-
-        @include mobile {
-            background-size: cover;
-        }
-    }
 
     .cp-footer-content-item {
         margin-top: 10px;
@@ -176,7 +163,19 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
         @extend .cp-footer-content-item;
 
         .cp-footer-social-links {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: flex-start;
 
+            .cp-footer-social-link {
+                background-color: $color-nav-link-hover;
+                margin: auto 10px;
+            }
+
+            .cp-footer-social-link:hover {
+                opacity: 0.7;
+            }
         }
     }
 
@@ -185,7 +184,8 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
     }
 
     .cp-copyright {
-        margin: 10px 0;
+        padding-top: 15px;
+        background-color: $color-app;
 
         .cp-copyright-content {
             color: white;

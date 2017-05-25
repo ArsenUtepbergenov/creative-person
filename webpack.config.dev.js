@@ -16,7 +16,9 @@ export default {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin({
-            filename: 'styles.css'
+            filename: 'styles.css',
+            allChunks: true,
+            disable: true
         })
     ],
     module: {
@@ -32,7 +34,6 @@ export default {
                 include: path.join(__dirname, 'static/public/scss'),
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    //resolve-url-loader may be chained before sass-loader if necessary
                     use: ['css-loader', 'sass-loader']
                 })
             },

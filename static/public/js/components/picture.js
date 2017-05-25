@@ -12,7 +12,7 @@ export default function Picture({ picture, deletePicture }) {
             <p className="cp-picture-rating">Rating: { picture.rating }</p>
 
             <div className="cp-picture-buttons">
-                <button className="cp-picture-update-button">Edit</button>
+                <NavLink to={`/gallery/new/${picture.id}`} className="cp-picture-update-button">Edit</NavLink>
                 <div className="cp-vertical-delimiter"></div>
                 <button className="cp-picture-delete-button" onClick={() => deletePicture(picture.id)}>Delete</button>
             </div>

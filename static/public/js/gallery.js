@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import PictureForm from './components/pictureForm';
@@ -12,18 +13,12 @@ class Gallery extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            formAddPictureVisible: false,
             ratings: [1, 2, 3, 4, 5]
         };
-        this.onClick = this.onClick.bind(this);
     }
 
     componentDidMount() {
         this.props.getPictures();
-    }
-
-    onClick() {
-        this.setState({ formAddPictureVisible: !this.state.formAddPictureVisible });
     }
 
     render() {
@@ -32,17 +27,9 @@ class Gallery extends React.Component {
                 <SortPane ratings = { this.state.ratings } ></SortPane>
                 <PicturesCollection pictures={ this.props.pictures } deletePicture={ this.props.deletePicture } />
                 <div>
-                    <div className="cp-gallery-add-picture-button" onClick={ this.onClick }>
+                    <NavLink to="/gallery/new" className="cp-gallery-add-picture-button">
                         <i className="fa fa-plus fa-5x cp-gallery-add-picture-button-icon" aria-hidden="true"></i>
-                    </div>
-                    {
-                        this.state.formAddPictureVisible
-                        ? <div>
-                              <PictureForm />
-                              <span className="cp-modal-form-close-button" onClick={ this.onClick }>&times;</span>
-                          </div>
-                        : null
-                    }
+                    </NavLink>
                 </div>
             </div>
         );

@@ -1,4 +1,4 @@
-import { SET_PICTURES, ADD_PICTURE, DELETE_PICTURE, SET_RATING } from '../actions/galleryActions';
+import { SET_PICTURES, ADD_PICTURE, DELETE_PICTURE, SET_RATING, GET_PICTURE, UPDATE_PICTURE } from '../actions/galleryActions';
 
 export default function pictures(state = [], action = {}) {
     switch (action.type) {
@@ -10,6 +10,29 @@ export default function pictures(state = [], action = {}) {
                 ...state,
                 action.picture
             ];
+        break;
+        case UPDATE_PICTURE:
+            return state.map(item => {
+                if (item.id == action.picture.id)
+                    return action.picture;
+                return item;
+            });
+        break;
+        case GET_PICTURE:
+            const index = state.findIndex(item => item.id == action.picture[0].id);
+            if (index > -1) {
+                return state.map(item => {
+                    if (item.id == action.picture[0].id)
+                        return action.picture[0];
+                    return item;
+                });
+            }
+            else {
+                return [
+                    ...state,
+                    action.picture[0]
+                ];
+            }
         break;
         case DELETE_PICTURE:
             return state.filter(item => item.id !== action.id);

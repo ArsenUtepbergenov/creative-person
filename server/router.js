@@ -40,6 +40,26 @@ router.get('/api/gallery', (req, res) => {
     })
 });
 
+router.get('/api/gallery/:id', (req, res) => {
+    pool.connect((err, client, done) => {
+        if (err)
+            return console.error('error fetching client from pool', err);
+
+        client.query('SELECT * FROM gallery WHERE id IN ($1)', [req.params.id], (err, result) => {
+            if (err) {
+                return console.error('error running query', err);
+                res.status(400).send(err);
+            }
+            res.status(200).send(result.rows);
+            done();
+        });
+    });
+
+    pool.on('error', (err, client) => {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
 router.get('/api/music', (req, res) => {
     pool.connect((err, client, done) => {
         if (err)
@@ -100,8 +120,8 @@ router.put('/api/gallery/:id', (req, res) => {
         if (err)
             return console.error('error fetching client from pool', err);
 
-        client.query('UPDATE gallery SET title = $1, author = $2, WHERE id = $3',
-                     [req.body.title, req.body.author, req.params.id]
+        client.query('UPDATE gallery SET title = $1, author = $2 WHERE id = $3',
+                     [req.body.title, req.body.author, parseInt(req.params.id)]
         );
         done();
         res.send('200');
