@@ -1,6 +1,7 @@
 import express from 'express';
 import pg from 'pg';
 import path from 'path';
+import { validateInput } from '../static/public/js/utilities/utilities';
 
 const router = express.Router();
 
@@ -20,6 +21,8 @@ router.get(/^(\/|\/gallery|\/photo|\/music|\/register|\/signin)$/, (req, res) =>
     res.sendFile(path.join(__dirname, '../static/public/pages/index.html'));
 });
 
+// api gallery
+// get all pictures
 router.get('/api/gallery', (req, res) => {
     pool.connect((err, client, done) => {
         if (err)
@@ -40,6 +43,7 @@ router.get('/api/gallery', (req, res) => {
     })
 });
 
+// get picture by id
 router.get('/api/gallery/:id', (req, res) => {
     pool.connect((err, client, done) => {
         if (err)
@@ -60,6 +64,62 @@ router.get('/api/gallery/:id', (req, res) => {
     })
 });
 
+// add picture
+router.post('/api/gallery', (req, res) => {
+    pool.connect((err, client, done) => {
+        if (err)
+            return console.error('error fetching client from pool', err);
+
+        client.query('INSERT INTO gallery(id, title, author) VALUES($1, $2, $3)',
+                     [req.body.id, req.body.title, req.body.author]
+        );
+        done();
+        res.send('201');
+    });
+
+    pool.on('error', (err, client) => {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
+// update picture
+router.put('/api/gallery/:id', (req, res) => {
+    pool.connect((err, client, done) => {
+        if (err)
+            return console.error('error fetching client from pool', err);
+
+        client.query('UPDATE gallery SET title = $1, author = $2 WHERE id = $3',
+                     [req.body.title, req.body.author, parseInt(req.params.id)]
+        );
+        done();
+        res.send('200');
+    });
+
+    pool.on('error', (err, client) => {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
+// delete picture by id
+router.delete('/api/gallery/:id', (req, res) => {
+    pool.connect((err, client, done) => {
+        if (err)
+            return console.error('error fetching client from pool', err);
+
+        client.query('DELETE FROM gallery WHERE id = $1',
+                     [req.params.id]
+        );
+        done();
+        res.send('200');
+    });
+
+    pool.on('error', (err, client) => {
+        console.error('idle client error', err.message, err.stack)
+    })
+});
+
+// api music
+// get all music
 router.get('/api/music', (req, res) => {
     pool.connect((err, client, done) => {
         if (err)
@@ -80,24 +140,18 @@ router.get('/api/music', (req, res) => {
     })
 });
 
-router.post('/api/gallery', (req, res) => {
-    pool.connect((err, client, done) => {
-        if (err)
-            return console.error('error fetching client from pool', err);
-
-        client.query('INSERT INTO gallery(id, title, author) VALUES($1, $2, $3)',
-                     [req.body.id, req.body.title, req.body.author]
-        );
-        done();
-        res.send('201');
-    });
-
-    pool.on('error', (err, client) => {
-        console.error('idle client error', err.message, err.stack)
-    })
-});
-
+// api users
+// add user
 router.post('/api/users', (req, res) => {
+    const { errors, isValid } = validateInput(req.body);
+
+    if (isValid) {
+        res.json({ success: true });
+    }
+    else {
+        res.status(400).json(errors);
+    }
+/*
     pool.connect((err, client, done) => {
         if (err)
             return console.error('error fetching client from pool', err);
@@ -112,41 +166,7 @@ router.post('/api/users', (req, res) => {
 
     pool.on('error', (err, client) => {
         console.error('idle client error', err.message, err.stack)
-    })
-});
-
-router.put('/api/gallery/:id', (req, res) => {
-    pool.connect((err, client, done) => {
-        if (err)
-            return console.error('error fetching client from pool', err);
-
-        client.query('UPDATE gallery SET title = $1, author = $2 WHERE id = $3',
-                     [req.body.title, req.body.author, parseInt(req.params.id)]
-        );
-        done();
-        res.send('200');
-    });
-
-    pool.on('error', (err, client) => {
-        console.error('idle client error', err.message, err.stack)
-    })
-});
-
-router.delete('/api/gallery/:id', (req, res) => {
-    pool.connect((err, client, done) => {
-        if (err)
-            return console.error('error fetching client from pool', err);
-
-        client.query('DELETE FROM gallery WHERE id = $1',
-                     [req.params.id]
-        );
-        done();
-        res.send('200');
-    });
-
-    pool.on('error', (err, client) => {
-        console.error('idle client error', err.message, err.stack)
-    })
+    })*/
 });
 
 export default router;

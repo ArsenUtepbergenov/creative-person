@@ -34,12 +34,13 @@
         "sass-loader": "^6.0.2",
         "style-loader": "^0.13.1",
         "url-loader": "^0.5.8",
+        "validator": "^7.0.0",
         "webpack": "^2.2.1",
         "webpack-dev-middleware": "^1.10.0",
         "webpack-hot-middleware": "^2.17.0"
     },
     "scripts": {
-        "server": "nodemon --watch server --exec babel-node -- server/app.js",
+        "start": "nodemon --watch server --exec babel-node -- server/app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {

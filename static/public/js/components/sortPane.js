@@ -11,9 +11,7 @@ function SortPane({ ratings = [], onRatingChange}) {
             </div>
             <div className="cp-sort-pane-rating">
                 <span className="cp-sort-pane-rating-caption">Rating:</span>
-                <select
-                    onChange={ event => onRatingChange(event.target.value) }
-                    >
+                <select onChange={ event => onRatingChange(event.target.value) }>
                     <option value="all">All</option>
                     {ratings.map((rating, index) =>
                         <option key={ index } value={ rating }>{ rating }</option>

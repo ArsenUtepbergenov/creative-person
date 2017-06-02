@@ -7,6 +7,13 @@ class NavigationBar extends React.Component {
             <nav className="cp-nav">
                 <ul className="cp-nav-menu">
                     <li className="cp-nav-link-wrapper">
+                        <NavLink to='/'>
+                            <div className="cp-nav-logo">
+                                <img src={ require('../../img/logo.png') } alt="logo" className="cp-logo-img" width="70px" height="60px"></img>
+                            </div>
+                        </NavLink>
+                    </li>
+                    <li className="cp-nav-link-wrapper">
                         <NavLink to='/' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-home" aria-hidden="true"></i> Home</NavLink>
                     </li>
                     <li className="cp-nav-link-wrapper">
@@ -17,7 +24,7 @@ class NavigationBar extends React.Component {
                     </li>
                     <li className="cp-nav-link-wrapper">
                         <NavLink to='/music' className="cp-nav-link" activeClassName="cp-nav-link-active" exact><i className="fa fa-music" aria-hidden="true"></i> Music</NavLink>
-                    </li>                
+                    </li>
                 </ul>
             </nav>
         )

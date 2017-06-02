@@ -5,6 +5,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import PictureForm from './components/pictureForm';
 import PictureSingle from './components/pictureSingle';
+import FlashMessagesList from './components/flashMessagesList';
 import Gallery from './gallery';
 import Home from './home';
 import Photo from './photo';
@@ -16,7 +17,8 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Header></Header>
+                <Header />
+                <FlashMessagesList />
                 <Route exact path='/' component={Home} />
                 <Route path='/gallery' component={Gallery} />
                 <Route path='/gallery/new' component={PictureForm} />
@@ -26,7 +28,7 @@ class App extends React.Component {
                 <Route path='/music' component={Music} />
                 <Route path='/register' component={Register} />
                 <Route path='/signin' component={Signin} />
-                <Footer></Footer>
+                <Footer />
             </div>
         )
     }

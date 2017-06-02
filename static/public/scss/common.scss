@@ -44,3 +44,83 @@
     margin: 5px 2px;
     color: white;
 }
+
+.cp-alert {
+    max-width: 1000px;
+    padding: 16px;
+    font-size: 1.3em;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 15px auto;
+    text-align: center;
+    position: relative;
+}
+
+.cp-alert-close {
+    padding: 0;
+    font-size: 1.5em;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.cp-alert-success {
+    background-color: #d8f3d4;
+    border-color: #90c790;
+    color: #5e925e;
+
+    .cp-alert-close {
+        background-color: #d8f3d4;
+        color: #5e925e;
+    }
+
+    .cp-alert-close:hover {
+        color: #5e925a;
+    }
+}
+
+.cp-alert-danger {
+    background-color: #ecc2c2;
+    border-color: #f9a9a9;
+    color: #f74141;
+
+    .cp-alert-close {
+        background-color: #ecc2c2;
+        color: #f74141;
+    }
+
+    .cp-alert-close:hover {
+        color: #fd5259;
+    }
+}
+
+.errors {
+    .cp-register-form-input-icon-wrapper {
+        background-color: #ca8989 !important;
+    }
+
+    .cp-register-form-input {
+        border-color: #ca8989 !important;
+    }
+
+    .cp-form-body-label {
+        color: #c55151;
+    }
+
+    .cp-form-body-input {
+        background-color: #fde6e6;
+        border-color: #ca8989;
+    }
+
+    .cp-form-span {
+        color: #c55151;
+        display: block;
+        text-align: center;
+    }
+}

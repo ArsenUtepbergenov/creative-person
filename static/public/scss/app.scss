@@ -1,5 +1,5 @@
 $header-height: 70px;
-$cover-height: 550px;
+$cover-height: 500px;
 $color-app: rgba(0, 0, 0, 0.1);
 $color-navigation: rgb(26, 40, 63);
 $color-nav-link: rgba(0, 0, 0, 0.2);
@@ -19,6 +19,14 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
     height: inherit;
 }
 
+.cp-nav-menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 .cp-background-cover {
     background: url(../img/cover.jpg) no-repeat center;
     background-size: cover;
@@ -30,71 +38,98 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
     background-color: $color-app;
     height: $header-height;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
 
     .cp-header-navigation {
         width: 1000px;
+        height: 100%;
 
         .cp-nav {
-            height: 100%;
-        }
-
-        .cp-nav-menu {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            align-items: center;
-            flex-wrap: nowrap;
-            height: inherit;
-
-            .cp-nav-link-wrapper {
-                font-family: century gothic;
-                width: 100%;
-                text-align: center;
+            .cp-nav-menu {
+                list-style: none;
+                @extend .cp-nav-menu;
                 height: inherit;
-            }
 
-            .cp-nav-link {
-                @extend .cp-link;
-            }
+                .cp-nav-link-wrapper {
+                    font-family: century gothic;
+                    width: 100%;
+                    text-align: center;
+                    height: inherit;
+                }
 
-            .cp-nav-link-active {
-                background-color: $color-nav-link;
-                color: white;
-            }
+                .cp-nav-link {
+                    @extend .cp-link;
 
-            .cp-nav-link:hover {
-                background-color: $color-nav-link-hover;
+                    @include notebook {
+                        padding-left: 0.5em;
+                        padding-right: 0.5em;
+                    };
+                }
+
+                .cp-nav-link-active {
+                    background-color: $color-nav-link;
+                }
+
+                .cp-nav-link:hover {
+                    background-color: $color-nav-link-hover;
+                }
+
+                .cp-nav-logo {
+                    height: 100%;
+                    display: flex;
+
+                    .cp-logo-img {
+                        margin: auto;
+                    }
+                }
             }
         }
     }
 
-
     .cp-header-menu {
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: nowrap;
-        color: white;
+        width: 700px;
         height: 100%;
 
+        .cp-header-menu-elements {
+            @extend .cp-nav-menu;
+            justify-content: flex-end;
+            color: white;
+            height: 100%;
+        }
+
         .cp-header-input-search {
-            padding: 8px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 12px;
             border: none;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            padding-left: 10px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+
+            @include notebook {
+                width: 180px;
+            };
+
+            @include tablet {
+                display: none;
+            };
         }
 
         .cp-header-button-search {
             padding: 9.5px;
-            transition: 0.5s;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
             background-color: $color-search-button;
+
+            @include notebook {
+                padding: 9.5px 15px;
+            };
+
+            .cp-header-button-search-text {
+                @include notebook {
+                    display: none;
+                };
+            }
         }
 
         .cp-header-button-search:hover {
@@ -103,6 +138,17 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
 
         .cp-header-link-signin, .cp-header-link-register {
             @extend .cp-link;
+
+            @include notebook {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            };
+
+            @include tablet {
+                .cp-header-link-register-text, .cp-header-link-signin-text {
+                    display: none;
+                }
+            };
         }
 
         .cp-header-link-signin::after, .cp-header-link-register::after {
@@ -114,18 +160,9 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
             transition: width 0.3s ease-in-out;
         }
 
-        .cp-header-link-signin:hover::after, .cp-header-link-register:hover::after {
+        .cp-header-link-signin:hover::after, .cp-header-link-signin:focus::after,
+        .cp-header-link-register:hover::after, .cp-header-link-register:focus::after {
             width: 100%;
-        }
-    }
-
-    .cp-header-logo {
-        height: 100%;
-        display: flex;
-        margin-left: 50px;
-
-        .cp-logo-img {
-            margin: auto;
         }
     }
 }

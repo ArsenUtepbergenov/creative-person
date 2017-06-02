@@ -49,8 +49,12 @@ class PictureForm extends React.Component {
         event.preventDefault();
 
         let errors = {};
-        if (this.state.inputTitle === '') errors.inputTitle = "Cat't be empty";
-        if (this.state.inputAuthor === '') errors.inputAuthor = "Cat't be empty";
+
+        if (this.state.inputTitle === '')
+            errors.inputTitle = "Cat't be empty";
+        if (this.state.inputAuthor === '')
+            errors.inputAuthor = "Cat't be empty";
+
         this.setState({ errors });
 
         const isValid = Object.keys(errors).length === 0;
@@ -58,9 +62,10 @@ class PictureForm extends React.Component {
         if (isValid) {
             const stateId = this.state.id;
             let id = _getId(1, 100);
-            const rating = 1;
+            const rating = this.props.ratingOfNewPicture;
             const title = this.state.inputTitle;
             const author = this.state.inputAuthor;
+            
             if (stateId) {
                 id = stateId;
                 this.props.updatePicture({ id, title, author, rating });
@@ -77,7 +82,7 @@ class PictureForm extends React.Component {
                 <div className="cp-modal-form">
                     <form className="cp-form-add-picture" onSubmit={this.addPicture}>
                         <div className="cp-form-add-picture-body">
-                            <div className={classnames('cp-form-body-field', { errors: !!this.state.errors.inputTitle }) }>
+                            <div className={ classnames("cp-form-body-field", { "errors": !!this.state.errors.inputTitle }) }>
                                 <label className="cp-form-body-label" htmlFor="inputTitle">Title:</label>
                                 <input className="cp-form-body-input"
                                        name="inputTitle"
@@ -85,10 +90,10 @@ class PictureForm extends React.Component {
                                        onChange={ this.changeDataPicture }
                                        id="inputTitle"
                                 />
-                                <span className="cp-form-body-span">{ this.state.errors.inputTitle }</span>
+                                <span className="cp-form-span">{ this.state.errors.inputTitle }</span>
                             </div>
 
-                            <div className={classnames('cp-form-body-field', { errors: !!this.state.errors.inputAuthor }) }>
+                            <div className={ classnames("cp-form-body-field", { "errors": !!this.state.errors.inputAuthor }) }>
                                 <label className="cp-form-body-label" htmlFor="inputAuthor">Author:</label>
                                 <input className="cp-form-body-input"
                                        name="inputAuthor"
@@ -96,7 +101,7 @@ class PictureForm extends React.Component {
                                        onChange={ this.changeDataPicture }
                                        id="inputAuthor"
                                 />
-                            <span className="cp-form-body-span">{ this.state.errors.inputAuthor }</span>
+                            <span className="cp-form-span">{ this.state.errors.inputAuthor }</span>
                             </div>
                             <button className="cp-form-add-picture-button" type="submit">Add picture</button>
                         </div>
@@ -106,6 +111,16 @@ class PictureForm extends React.Component {
             </div>
         );
     }
+}
+
+PictureForm.propTypes = {
+    savePicture: React.PropTypes.func.isRequired,
+    getPicture: React.PropTypes.func.isRequired,
+    updatePicture: React.PropTypes.func.isRequired
+}
+
+PictureForm.defaultProps = {
+    ratingOfNewPicture: 1
 }
 
 function mapStateToProps(state, props) {
