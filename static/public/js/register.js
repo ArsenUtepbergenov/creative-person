@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { userRegisterRequest } from './actions/registerActions';
-import addFlashMessage from './actions/flashMessagesActions';
+import { addFlashMessage } from './actions/flashMessagesActions';
 import RegisterForm from './components/registerForm';
 
 class Register extends React.Component {

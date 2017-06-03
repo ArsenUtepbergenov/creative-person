@@ -1,6 +1,7 @@
 import express from 'express';
 import pg from 'pg';
 import path from 'path';
+import bcrypt from 'bcrypt';
 import { validateInput } from '../static/public/js/utilities/utilities';
 
 const router = express.Router();
@@ -146,27 +147,29 @@ router.post('/api/users', (req, res) => {
     const { errors, isValid } = validateInput(req.body);
 
     if (isValid) {
-        res.json({ success: true });
+        const { userName, userPassword, userEmail } = req.body;
+        const password_digest = bcrypt.hashSync(userPassword, 10);
+
+        pool.connect((err, client, done) => {
+            if (err) {
+                return console.error('error fetching client from pool', err);
+                res.status(500).json({ error: err });
+            }
+
+            client.query('INSERT INTO users(name, email, password) VALUES($1, $2, $3)',
+                         [userName, userEmail,  password_digest]
+            );
+            done();
+            res.status(201).json({ success: true });
+        });
+
+        pool.on('error', (err, client) => {
+            console.error('idle client error', err.message, err.stack)
+        })
     }
     else {
         res.status(400).json(errors);
     }
-/*
-    pool.connect((err, client, done) => {
-        if (err)
-            return console.error('error fetching client from pool', err);
-
-        console.log(req.body.userName);
-        client.query('INSERT INTO users(name, email, password) VALUES($1, $2, $3)',
-                     [req.body.userName, req.body.userEmail,  req.body.userPassword]
-        );
-        done();
-        res.send('201');
-    });
-
-    pool.on('error', (err, client) => {
-        console.error('idle client error', err.message, err.stack)
-    })*/
 });
 
 export default router;

@@ -1,4 +1,4 @@
-import { ADD_FLASH_MESSAGE } from '../actions/flashMessagesActions';
+import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from '../actions/flashMessagesActions';
 import { _getId } from '../utilities/utilities';
 
 export default function flashMessages(state = [], action = {}) {
@@ -12,6 +12,9 @@ export default function flashMessages(state = [], action = {}) {
                     text: action.message.text
                 }
             ];
+        break;
+        case DELETE_FLASH_MESSAGE:
+            return state.filter(message => message.id !== action.id);﻿
         break;
         default:
             return state;
