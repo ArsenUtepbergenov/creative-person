@@ -4,8 +4,6 @@ import Picture from './picture';
 
 import { getPictures } from '../actions/galleryActions';
 
-import testPicture from '../../img/picture.jpg';
-
 class PictureSingle extends React.Component {
     constructor(props) {
         super(props);
@@ -23,7 +21,7 @@ class PictureSingle extends React.Component {
             <div className="cp-picture-single">
                 <div className="cp-picture-single-content">
                     <div className="cp-image">
-                        <img src={ testPicture } alt="picture" className="cp-picture" width="100%"></img>
+                        <img src={ require(`../../img/${picture[0].image}`) } alt="picture" className="cp-picture" width="100%"></img>
                     </div>
                     <div className="cp-info">
                         <p>Title: { picture[0].title }</p>

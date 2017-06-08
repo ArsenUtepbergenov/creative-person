@@ -12,9 +12,6 @@ import { getPictures, deletePicture } from './actions/galleryActions';
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            ratings: [1, 2, 3, 4, 5]
-        };
     }
 
     componentDidMount() {
@@ -24,7 +21,7 @@ class Gallery extends React.Component {
     render() {
         return (
             <div className="cp-gallery">
-                <SortPane ratings = { this.state.ratings } ></SortPane>
+                <SortPane ratings = { this.props.ratings } ></SortPane>
                 <PicturesCollection pictures={ this.props.pictures } deletePicture={ this.props.deletePicture } />
                 <div>
                     <NavLink to="/gallery/new" className="cp-gallery-add-picture-button">
@@ -34,6 +31,10 @@ class Gallery extends React.Component {
             </div>
         );
     }
+}
+
+Gallery.defaultProps = {
+    ratings: [1, 2, 3, 4, 5]
 }
 
 Gallery.propTypes = {

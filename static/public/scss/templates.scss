@@ -1,10 +1,11 @@
 // общие стили для тегов
 body {
     background: url(../img/background-cover.jpg) repeat center;
+    font-family: Comic Sans MS;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: century gothic;
+    font-family: Georgia;
     letter-spacing: 0.1em;
 }
 
@@ -13,25 +14,28 @@ select {
 }
 
 input {
-    padding: 12px 20px;
+    padding: 8px 20px;
     box-sizing: border-box;
     border: 3px solid #ccc;
     transition: 0.5s;
     outline: none;
+    color: #376d37;
 }
 
 button {
     border: none;
     cursor: pointer;
     padding: 10px 25px;
-    background-color: #869fde;
+    background-color: #7590ad;
     color: #ffffff;
+    font-family: Comic Sans MS;
+    font-size: 1em;
     outline: none;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: #3d5590;
+    background-color: #566a80;
 }
 
 hr {

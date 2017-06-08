@@ -26,8 +26,8 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(jsonParser);
 app.use(urlencodedParser);
 
-app.use(router);
-
 app.use(express.static(path.join(__dirname, '../static')));
+
+app.use(router);
 
 app.listen(3030, () => console.log('App creative person listening on port 3030!'));

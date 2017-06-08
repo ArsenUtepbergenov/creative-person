@@ -20,7 +20,6 @@ const store = createStore(
     )
 )
 
-// обращение к DOM и отрисовка в root компонента "Router"
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>

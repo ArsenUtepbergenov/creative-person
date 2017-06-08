@@ -62,16 +62,17 @@ class PictureForm extends React.Component {
         if (isValid) {
             const stateId = this.state.id;
             let id = _getId(1, 100);
-            const rating = this.props.ratingOfNewPicture;
+            const rating = this.props.defaultRating;
+            const image = this.props.defaultImage;
             const title = this.state.inputTitle;
             const author = this.state.inputAuthor;
-            
+
             if (stateId) {
                 id = stateId;
-                this.props.updatePicture({ id, title, author, rating });
+                this.props.updatePicture({ id, title, author, image, rating });
             }
             else {
-                this.props.savePicture({ id, title, author, rating });
+                this.props.savePicture({ id, title, author, image, rating });
             }
         }
     }
@@ -101,7 +102,17 @@ class PictureForm extends React.Component {
                                        onChange={ this.changeDataPicture }
                                        id="inputAuthor"
                                 />
-                            <span className="cp-form-span">{ this.state.errors.inputAuthor }</span>
+                                <span className="cp-form-span">{ this.state.errors.inputAuthor }</span>
+                            </div>
+
+                            <div className="cp-form-body-field">
+                                <label className="cp-form-body-label" htmlFor="inputRating">Default rating:</label>
+                                <input className="cp-form-body-input" type="number" value={ this.props.defaultRating } id="inputRating" disabled />
+                            </div>
+
+                            <div className="cp-form-body-field">
+                                <label className="cp-form-body-label" htmlFor="inputImage">Default image:</label>
+                                <input className="cp-form-body-input" type="text" value={ this.props.defaultImage } id="inputImage" disabled />
                             </div>
                             <button className="cp-form-add-picture-button" type="submit">Add picture</button>
                         </div>
@@ -120,7 +131,8 @@ PictureForm.propTypes = {
 }
 
 PictureForm.defaultProps = {
-    ratingOfNewPicture: 1
+    defaultRating: 1,
+    defaultImage: 'picture.jpg'
 }
 
 function mapStateToProps(state, props) {

@@ -50,7 +50,9 @@ router.get('/api/gallery/:id', (req, res) => {
         if (err)
             return console.error('error fetching client from pool', err);
 
-        client.query('SELECT * FROM gallery WHERE id IN ($1)', [req.params.id], (err, result) => {
+        const id = parseInt(req.params.id);
+
+        client.query('SELECT * FROM gallery WHERE id IN ($1)', [id], (err, result) => {
             if (err) {
                 return console.error('error running query', err);
                 res.status(400).send(err);
@@ -71,8 +73,10 @@ router.post('/api/gallery', (req, res) => {
         if (err)
             return console.error('error fetching client from pool', err);
 
-        client.query('INSERT INTO gallery(id, title, author) VALUES($1, $2, $3)',
-                     [req.body.id, req.body.title, req.body.author]
+        const { id, title, author, image, rating } = req.body;
+
+        client.query('INSERT INTO gallery(id, title, author, image, rating) VALUES($1, $2, $3, $4, $5)',
+                     [id, title, author, image, rating]
         );
         done();
         res.send('201');
@@ -89,8 +93,11 @@ router.put('/api/gallery/:id', (req, res) => {
         if (err)
             return console.error('error fetching client from pool', err);
 
-        client.query('UPDATE gallery SET title = $1, author = $2 WHERE id = $3',
-                     [req.body.title, req.body.author, parseInt(req.params.id)]
+        const id = parseInt(req.params.id);
+        const { title, author, image, rating } = req.body;
+
+        client.query('UPDATE gallery SET title = $1, author = $2, image = $3, rating = $4 WHERE id = $5',
+                     [title, author, image, rating, id]
         );
         done();
         res.send('200');
@@ -107,9 +114,10 @@ router.delete('/api/gallery/:id', (req, res) => {
         if (err)
             return console.error('error fetching client from pool', err);
 
-        client.query('DELETE FROM gallery WHERE id = $1',
-                     [req.params.id]
-        );
+        const id = parseInt(req.params.id);
+
+        client.query('DELETE FROM gallery WHERE id = $1', [id]);
+
         done();
         res.send('200');
     });

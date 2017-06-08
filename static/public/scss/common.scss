@@ -1,3 +1,7 @@
+$form-width: 350px;
+$form-background-color: rgba(156, 184, 212, 0.7);
+$color-border-input: #8eaac7;
+
 .cp-modal-form {
     position: fixed;
     z-index: 1;
@@ -6,17 +10,17 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .cp-modal-form-close-button {
     position: fixed;
     z-index: 2;
-    top: 15px;
+    top: 0;
     right: 35px;
     color: #ffffff;
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bold;
     transition: 0.3s;
     text-decoration: none;
@@ -27,6 +31,78 @@
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+.cp-form {
+    background-color: $form-background-color;
+    width: $form-width;
+    margin: 30px auto;
+    text-align: center;
+    height: 100%;
+}
+
+.cp-form-header {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: rgba(117, 144, 173, 0.9);
+    display: flex;
+
+    .cp-form-header-text {
+        margin: auto;
+        font-size: 1.4em;
+        color: white;
+    }
+}
+
+.cp-form-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.cp-form-footer {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(117, 144, 173, 0.9);
+    display: flex;
+
+    .cp-form-footer-link {
+        color: white;
+    }
+
+    .cp-form-footer-text {
+        margin: auto;
+        color: white;
+    }
+}
+
+.cp-form-input-wrapper {
+    position: relative;
+    margin: 7px auto;
+}
+
+.cp-form-input {
+    padding-left: 50px;
+    border-color: $color-border-input;
+}
+
+.cp-form-input-icon-wrapper {
+    position: absolute;
+    width: 42px;
+    height: 40px;
+    background-color: $color-border-input;
+    display: flex;
+}
+
+.cp-form-input-icon {
+    margin: auto;
+    color: #ffffff;
+}
+
+.cp-form-button {
+    margin: 20px auto 30px auto;
+    display: block;
+    width: 270px;
 }
 
 .cp-vertical-delimiter {
@@ -119,7 +195,7 @@
     }
 
     .cp-form-span {
-        color: #c55151;
+        color: #18304a;
         display: block;
         text-align: center;
     }
