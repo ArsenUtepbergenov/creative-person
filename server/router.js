@@ -2,7 +2,9 @@ import express from 'express';
 import pg from 'pg';
 import path from 'path';
 import bcrypt from 'bcrypt';
-import { validateInput } from '../static/public/js/utilities/utilities';
+import { _isEmpty, _commonValidations } from '../static/public/js/utilities/utilities';
+
+import User from './models/user';
 
 const router = express.Router();
 
@@ -18,7 +20,7 @@ const config = {
 
 let pool = new pg.Pool(config);
 
-router.get(/^(\/|\/gallery|\/photo|\/music|\/register|\/signin)$/, (req, res) => {
+router.get(/^(\/|\/gallery|\/register|\/signin)$/, (req, res) => {
     res.sendFile(path.join(__dirname, '../static/public/pages/index.html'));
 });
 
@@ -127,57 +129,50 @@ router.delete('/api/gallery/:id', (req, res) => {
     })
 });
 
-// api music
-// get all music
-router.get('/api/music', (req, res) => {
-    pool.connect((err, client, done) => {
-        if (err)
-            return console.error('error fetching client from pool', err);
-
-        client.query('SELECT * FROM music', (err, result) => {
-            if (err) {
-                return console.error('error running query', err);
-                res.status(400).send(err);
-            }
-            res.status(200).send(result.rows);
-            done();
-        });
-    });
-
-    pool.on('error', (err, client) => {
-        console.error('idle client error', err.message, err.stack)
-    })
-});
-
 // api users
+function inputValidate(data, otherValidations) {
+    let { errors } = otherValidations(data);
+
+    return User.query({
+        where: { email: data.userEmail },
+        orWhere: { name: data.userName }
+    }).fetch().then(user => {
+        if (user) {
+            if (user.get('name') === data.userName) {
+                errors.username = 'There is user with such username';
+            }
+            if (user.get('email') === data.userEmail) {
+                errors.email = 'There is user with such email';
+            }
+        }
+
+        return {
+            errors,
+            isValid: _isEmpty(errors)
+        };
+    })
+}
+
 // add user
 router.post('/api/users', (req, res) => {
-    const { errors, isValid } = validateInput(req.body);
+    inputValidate(req.body, _commonValidations).then(({ errors, isValid }) => {
+        if (isValid) {
+            const name = req.body.userName;
+            const email = req.body.userEmail;
+            const password = req.body.userPassword;
 
-    if (isValid) {
-        const { userName, userPassword, userEmail } = req.body;
-        const password_digest = bcrypt.hashSync(userPassword, 10);
+            const password_digest = bcrypt.hashSync(password, 10);
 
-        pool.connect((err, client, done) => {
-            if (err) {
-                return console.error('error fetching client from pool', err);
-                res.status(500).json({ error: err });
-            }
-
-            client.query('INSERT INTO users(name, email, password) VALUES($1, $2, $3)',
-                         [userName, userEmail,  password_digest]
-            );
-            done();
-            res.status(201).json({ success: true });
-        });
-
-        pool.on('error', (err, client) => {
-            console.error('idle client error', err.message, err.stack)
-        })
-    }
-    else {
-        res.status(400).json(errors);
-    }
+            User.forge({ name, email, password_digest },
+                       { hasTimestamps: true })
+                .save()
+                .then(user => res.json({ success: true }))
+                .catch(err => res.status(500).json({ error: err }));
+        }
+        else {
+            res.status(400).json(errors);
+        }
+    });
 });
 
 export default router;

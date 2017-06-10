@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { validateInput } from '../utilities/utilities';
+import { _commonValidations } from '../utilities/utilities';
 
 class RegisterForm extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class RegisterForm extends React.Component {
     }
 
     isValid() {
-        const { errors, isValid } = validateInput(this.state);
+        const { errors, isValid } = _commonValidations(this.state);
 
         if (!isValid) {
             this.setState({ errors });

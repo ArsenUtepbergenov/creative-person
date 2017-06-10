@@ -18,9 +18,7 @@ app.use(webpackMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-// create application/json parser
 let jsonParser = bodyParser.json();
-// create application/x-www-form-urlencoded parser
 let urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(jsonParser);

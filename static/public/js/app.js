@@ -8,8 +8,6 @@ import PictureSingle from './components/pictureSingle';
 import FlashMessagesList from './components/flashMessagesList';
 import Gallery from './gallery';
 import Home from './home';
-import Photo from './photo';
-import Music from './music';
 import Register from './register';
 import Signin from './signin';
 
@@ -24,8 +22,6 @@ class App extends React.Component {
                 <Route path='/gallery/new' component={PictureForm} />
                 <Route path='/gallery/new/:id' component={PictureForm} />
                 <Route path='/picture/:id' component={PictureSingle} />
-                <Route path='/photo' component={Photo} />
-                <Route path='/music' component={Music} />
                 <Route path='/register' component={Register} />
                 <Route path='/signin' component={Signin} />
                 <Footer />

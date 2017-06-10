@@ -1,3 +1,5 @@
+$color-picture-background: #444444;
+
 .cp-pictures-section {
     background-color: white;
     padding: 15px;
@@ -29,7 +31,7 @@
 
 .cp-picture-item-template {
     text-align: center;
-    background-color: #698286;
+    background-color: $color-picture-background;
     width: 400px;
     margin: 30px;
     border-radius: 15px;

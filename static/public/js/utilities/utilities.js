@@ -4,14 +4,14 @@ export function _getId(first, last) {
     return Math.floor(Math.random() * (last - first) + first);
 };
 
-function _isEmpty(object) {
+export function _isEmpty(object) {
     if (Object.keys(object).length == 0)
         return true;
 
     return false;
 }
 
-export function validateInput(data) {
+export function _commonValidations(data) {
     let errors = {};
 
     if (validator.isEmpty(data.userName))
