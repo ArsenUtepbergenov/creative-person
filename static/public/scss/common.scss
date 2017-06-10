@@ -1,5 +1,6 @@
 $form-width: 350px;
 $form-background-color: rgba(156, 184, 212, 0.7);
+$form-border-radius: 5px;
 $color-border-input: #8eaac7;
 
 .cp-modal-form {
@@ -33,9 +34,38 @@ $color-border-input: #8eaac7;
     cursor: pointer;
 }
 
+.cp-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cp-page-numbers {
+    list-style: none;
+    display: flex;
+
+    .cp-page-numbers-item {
+        padding: 8px 20px;
+        background-color: #82c774;
+        color: white;
+        user-select: none;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    .cp-page-numbers-item:hover {
+        background-color: #a2ca6d;
+    }
+
+    .cp-page-numbers-item-active {
+        background-color: #ff5454;
+    }
+}
+
 .cp-form {
     background-color: $form-background-color;
     width: $form-width;
+    border-radius: $form-border-radius;
     margin: 30px auto;
     text-align: center;
     height: 100%;
@@ -45,6 +75,8 @@ $color-border-input: #8eaac7;
     width: 100%;
     height: 100px;
     margin-bottom: 20px;
+    border-top-left-radius: $form-border-radius;
+    border-top-right-radius: $form-border-radius;
     background-color: rgba(117, 144, 173, 0.9);
     display: flex;
 
@@ -63,6 +95,8 @@ $color-border-input: #8eaac7;
 .cp-form-footer {
     width: 100%;
     height: 50px;
+    border-bottom-left-radius: $form-border-radius;
+    border-bottom-right-radius: $form-border-radius;
     background-color: rgba(117, 144, 173, 0.9);
     display: flex;
 
@@ -106,7 +140,7 @@ $color-border-input: #8eaac7;
 }
 
 .cp-vertical-delimiter {
-    background-color: #cccccc;
+    background-color: white;
     margin: 10px;
     width: 2px
 }
@@ -139,7 +173,7 @@ $color-border-input: #8eaac7;
     font-size: 1.5em;
     position: absolute;
     right: 10px;
-    top: 12px;
+    top: 7px;
 
     span {
         font-weight: 600;

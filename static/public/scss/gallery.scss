@@ -1,7 +1,16 @@
-// для всех стилей нужно писать префикс cp- от "Creative person"
+.cp-pictures-section {
+    background-color: white;
+    padding: 15px;
+    margin: 15px 0;
+
+    .cp-caption-pictures {
+        font-size: 20px;
+        text-align: center;
+    }
+}
 
 .cp-link-picture {
-    color: black;
+    color: white;
 }
 
 .cp-search-picture {
@@ -20,10 +29,11 @@
 
 .cp-picture-item-template {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #698286;
     width: 400px;
     margin: 30px;
     border-radius: 15px;
+    color: white;
 }
 
 .cp-picture-single {
@@ -56,6 +66,7 @@
     .cp-picture-title {
         padding: 10px;
         font-size: 125%;
+        color: white;
     }
 
     .cp-picture-button {

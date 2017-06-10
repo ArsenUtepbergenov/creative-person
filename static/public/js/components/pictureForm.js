@@ -61,7 +61,7 @@ class PictureForm extends React.Component {
 
         if (isValid) {
             const stateId = this.state.id;
-            let id = _getId(1, 100);
+            let id = _getId(1, 1000);
             const rating = this.props.defaultRating;
             const image = this.props.defaultImage;
             const title = this.state.inputTitle;
