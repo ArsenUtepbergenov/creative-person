@@ -20,7 +20,7 @@ const config = {
 
 let pool = new pg.Pool(config);
 
-router.get(/^(\/|\/gallery|\/register|\/signin)$/, (req, res) => {
+router.get(/^(\/|\/gallery|\/register|\/signin|\/admin)$/, (req, res) => {
     res.sendFile(path.join(__dirname, '../static/public/pages/index.html'));
 });
 

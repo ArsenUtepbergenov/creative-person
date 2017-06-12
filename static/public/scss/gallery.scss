@@ -1,9 +1,8 @@
-$color-picture-background: #444444;
+$color-picture-background: #e0e0e0;
+$color-picture-text: #3c3c3c;
 
 .cp-pictures-section {
-    background-color: white;
-    padding: 15px;
-    margin: 15px 0;
+    @extend .cp-background-section;
 
     .cp-caption-pictures {
         font-size: 20px;
@@ -12,7 +11,7 @@ $color-picture-background: #444444;
 }
 
 .cp-link-picture {
-    color: white;
+    color: $color-picture-text;
 }
 
 .cp-search-picture {
@@ -25,17 +24,17 @@ $color-picture-background: #444444;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-content: space-around;
 }
 
 .cp-picture-item-template {
     text-align: center;
     background-color: $color-picture-background;
-    width: 400px;
+    width: 500px;
     margin: 30px;
     border-radius: 15px;
-    color: white;
+    color: $color-picture-text;
 }
 
 .cp-picture-single {
@@ -61,14 +60,17 @@ $color-picture-background: #444444;
     @extend .cp-picture-item-template;
 
     .cp-picture {
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        height: 370px;
+    }
+
+    .cp-picture:hover {
+        opacity: 0.7;
     }
 
     .cp-picture-title {
         padding: 10px;
         font-size: 125%;
-        color: white;
+        color: $color-picture-text;
     }
 
     .cp-picture-button {
@@ -99,31 +101,36 @@ $color-picture-background: #444444;
 
     .cp-picture-buttons {
         display: inline-flex;
+        padding: 8px;
     }
 }
 
 // button add picture on gallery page
 .cp-gallery-add-picture-button {
     text-align: center;
-    background-color: #cccccc;
-    width: 400px;
+    background-color: #7bcdf1;
+    width: 200px;
     margin: 30px;
     cursor: pointer;
-    margin: 0 auto;
-    height: 326px;
+    height: 50px;
     display: flex;
     transition: 0.5s;
     text-decoration: none;
-    color: #9e9e9e;
-    border-radius: 15px;
+    color: #ffffff;
+
+    .cp-gallery-add-picture-button-text {
+        margin: auto;
+        font-size: 1.3em;
+    }
 
     .cp-gallery-add-picture-button-icon {
         margin: auto;
+        font-size: 1.5em;
     }
 }
 
 .cp-gallery-add-picture-button:hover {
-    color: white;
+    background-color: #6e94a5;
 }
 
 // modal form add picture content

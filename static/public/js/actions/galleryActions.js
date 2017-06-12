@@ -6,11 +6,19 @@ export const GET_PICTURE = 'GET_PICTURE';
 export const DELETE_PICTURE = 'DELETE_PICTURE';
 export const SET_RATING = 'SET_RATING';
 export const UPDATE_PICTURE = 'UPDATE_PICTURE';
+export const SET_SORTING = 'SET_SORTING';
 
 export function ratingChange(rating) {
     return {
         type: SET_RATING,
         rating
+    }
+}
+
+export function sortingChange(sorting) {
+    return {
+        type: SET_SORTING,
+        sorting
     }
 }
 
@@ -52,6 +60,12 @@ export function pictureFetched(picture) {
 export function onRatingChange(rating) {
     return dispatch => {
         return dispatch(ratingChange(rating));
+    }
+}
+
+export function onSortingChange(sorting) {
+    return dispatch => {
+        return dispatch(sortingChange(sorting));
     }
 }
 

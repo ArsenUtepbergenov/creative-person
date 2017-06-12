@@ -2,9 +2,11 @@
 @import 'reset';
 @import 'font-awesome.min';
 // scss
+@import 'admin';
 @import 'mixins';
 @import 'templates';
 @import 'app';
 @import 'gallery';
 @import 'sort-pane';
 @import 'common';
+@import 'register-signin'

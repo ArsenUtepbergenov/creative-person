@@ -8,7 +8,9 @@ class Register extends React.Component {
     render() {
         const { userRegisterRequest, addFlashMessage } = this.props;
         return (
-            <RegisterForm userRegisterRequest={ userRegisterRequest } addFlashMessage={ addFlashMessage }></RegisterForm>
+            <div className="cp-register">
+                <RegisterForm userRegisterRequest={ userRegisterRequest } addFlashMessage={ addFlashMessage }></RegisterForm>
+            </div>
         );
     }
 }

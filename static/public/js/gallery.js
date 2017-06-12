@@ -66,11 +66,6 @@ class Gallery extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <NavLink to="/gallery/new" className="cp-gallery-add-picture-button">
-                        <i className="fa fa-plus fa-5x cp-gallery-add-picture-button-icon" aria-hidden="true"></i>
-                    </NavLink>
-                </div>
             </div>
         );
     }
@@ -86,18 +81,27 @@ Gallery.propTypes = {
     deletePicture: React.PropTypes.func.isRequired
 }
 
-function getVisiblePictures(rating, pictures) {
-    return pictures.filter(picture => {
-        return (
-            (rating == 'all' || rating == picture.rating)
-        );
-    });
+function getVisiblePictures(rating, sorting, pictures) {
+    return pictures
+        .filter(picture => {
+            return (
+                (rating == 'All' || rating == picture.rating)
+            );
+        })
+        .sort((a, b) => {
+            if (sorting == 'Asc') {
+                return a.title > b.title ? 1 : a.title < b.title ? -1 : 0;
+            }
+            if (sorting == 'Desc') {
+                return a.title < b.title ? 1 : a.title > b.title ? -1 : 0;
+            }
+       });
 }
 
 function mapStateToProps(state) {
     const { sorts, pictures } = state;
     return {
-        pictures: getVisiblePictures(sorts.rating, pictures),
+        pictures: getVisiblePictures(sorts.rating, sorts.sorting, pictures),
     };
 }
 

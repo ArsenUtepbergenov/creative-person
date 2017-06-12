@@ -4,7 +4,9 @@ import SigninForm from './components/signinForm';
 class Signin extends React.Component {
     render() {
         return (
-            <SigninForm></SigninForm>
+            <div className="cp-signin">        
+                <SigninForm></SigninForm>
+            </div>
         );
     }
 }

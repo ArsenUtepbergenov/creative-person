@@ -14,10 +14,12 @@ class FlashMessage extends React.Component {
     render() {
         const { id, type, text } = this.props.message;
         return (
-            <div className={ classnames("cp-alert", { "cp-alert-success": type === "success", "cp-alert-danger": type === "error" })} >
-                <button onClick={ this.onClick } className="cp-alert-close"><span>&times;</span></button>
-                { text }
-            </div>
+            <div className="cp-background-section">
+                <div className={ classnames("cp-alert", { "cp-alert-success": type === "success", "cp-alert-danger": type === "error" })} >
+                    <button onClick={ this.onClick } className="cp-alert-close"><span>&times;</span></button>
+                    { text }
+                </div>
+            </div>        
         );
     }
 }

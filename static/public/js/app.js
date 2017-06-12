@@ -10,6 +10,7 @@ import Gallery from './gallery';
 import Home from './home';
 import Register from './register';
 import Signin from './signin';
+import Admin from './admin';
 
 class App extends React.Component {
     render() {
@@ -18,7 +19,8 @@ class App extends React.Component {
                 <Header />
                 <FlashMessagesList />
                 <Route exact path='/' component={Home} />
-                <Route path='/gallery' component={Gallery} />
+                <Route path='/admin' component={Admin} />
+                <Route exact path='/gallery' component={Gallery} />
                 <Route path='/gallery/new' component={PictureForm} />
                 <Route path='/gallery/new/:id' component={PictureForm} />
                 <Route path='/picture/:id' component={PictureSingle} />

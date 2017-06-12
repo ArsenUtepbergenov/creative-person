@@ -114,7 +114,10 @@ class PictureForm extends React.Component {
                                 <label className="cp-form-body-label" htmlFor="inputImage">Default image:</label>
                                 <input className="cp-form-body-input" type="text" value={ this.props.defaultImage } id="inputImage" disabled />
                             </div>
-                            <button className="cp-form-add-picture-button" type="submit">Add picture</button>
+                            {
+                                this.state.id ? <button className="cp-form-add-picture-button" type="submit">Update picture</button>
+                                              : <button className="cp-form-add-picture-button" type="submit">Add picture</button>
+                            }
                         </div>
                     </form>
                 </div>

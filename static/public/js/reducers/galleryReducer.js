@@ -1,4 +1,4 @@
-import { SET_PICTURES, ADD_PICTURE, DELETE_PICTURE, SET_RATING, GET_PICTURE, UPDATE_PICTURE } from '../actions/galleryActions';
+import { SET_PICTURES, ADD_PICTURE, DELETE_PICTURE, SET_RATING, GET_PICTURE, UPDATE_PICTURE, SET_SORTING } from '../actions/galleryActions';
 
 export default function pictures(state = [], action = {}) {
     switch (action.type) {
@@ -42,12 +42,17 @@ export default function pictures(state = [], action = {}) {
     }
 }
 
-export function sorts(state = { rating: 'all' }, action = {}) {
+export function sorts(state = { rating: 'All', sorting: 'Desc' }, action = {}) {
     switch (action.type) {
         case SET_RATING:
-            return {
+            return Object.assign({}, state, {
                 rating: action.rating
-            }
+            });
+        break;
+        case SET_SORTING:
+            return Object.assign({}, state, {
+                sorting: action.sorting
+            });
         break;
         default:
             return state;

@@ -8,6 +8,12 @@ $color-footer: #405e94;
 $color-search-button: rgba(127, 181, 116, 0.9);
 $color-search-button-hover: rgba(127, 181, 116, 0.5);
 $color-register-signin-hover: rgba(127, 181, 116, 0.9);
+$color-backgroud-section: white;
+
+.cp-background-section {
+    background-color: $color-backgroud-section;
+    padding: 30px;
+}
 
 .cp-link {
     text-decoration: none;
@@ -169,20 +175,20 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
 
 // footer
 .cp-footer {
-    margin-top: 15px;
 
     .cp-footer-background-img {
         background: url(../img/cover2.jpg) no-repeat center;
         background-size: cover;
         height: 300px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .cp-footer-content {
         display: flex;
         justify-content: space-around;
-        flex-direction: row;
-        align-items: flex-start;
-        flex-wrap: wrap;
         color: white;
         background-color: $color-app;
     }
@@ -201,9 +207,7 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
 
         .cp-footer-social-links {
             display: flex;
-            justify-content: center;
-            flex-direction: row;
-            align-items: flex-start;
+            margin: 20px;
 
             .cp-footer-social-link {
                 background-color: $color-nav-link-hover;
@@ -222,7 +226,7 @@ $color-register-signin-hover: rgba(127, 181, 116, 0.9);
     }
 
     .cp-copyright {
-        padding-top: 15px;
+        padding: 15px;
         background-color: $color-app;
 
         .cp-copyright-content {

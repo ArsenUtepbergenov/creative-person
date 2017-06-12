@@ -66,7 +66,7 @@ $color-border-input: #8eaac7;
     background-color: $form-background-color;
     width: $form-width;
     border-radius: $form-border-radius;
-    margin: 30px auto;
+    margin: 0 auto;
     text-align: center;
     height: 100%;
 }
@@ -140,7 +140,7 @@ $color-border-input: #8eaac7;
 }
 
 .cp-vertical-delimiter {
-    background-color: white;
+    background-color: #3c3c3c;
     margin: 10px;
     width: 2px
 }
