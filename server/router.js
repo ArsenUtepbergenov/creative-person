@@ -2,7 +2,9 @@ import express from 'express';
 import pg from 'pg';
 import path from 'path';
 import bcrypt from 'bcrypt';
-import { _isEmpty, _commonValidations } from '../static/public/js/utilities/utilities';
+import jwt from 'jsonwebtoken';
+import configJWT from './config';
+import { _isEmpty, _inputRegisterValidations } from '../static/public/js/utilities/utilities';
 
 import User from './models/user';
 
@@ -134,14 +136,14 @@ function inputValidate(data, otherValidations) {
     let { errors } = otherValidations(data);
 
     return User.query({
-        where: { email: data.userEmail },
-        orWhere: { name: data.userName }
+        where: { email: data.email },
+        orWhere: { name: data.username }
     }).fetch().then(user => {
         if (user) {
-            if (user.get('name') === data.userName) {
+            if (user.get('name') === data.username) {
                 errors.username = 'There is user with such username';
             }
-            if (user.get('email') === data.userEmail) {
+            if (user.get('email') === data.email) {
                 errors.email = 'There is user with such email';
             }
         }
@@ -155,11 +157,11 @@ function inputValidate(data, otherValidations) {
 
 // add user
 router.post('/api/users', (req, res) => {
-    inputValidate(req.body, _commonValidations).then(({ errors, isValid }) => {
+    inputValidate(req.body, _inputRegisterValidations).then(({ errors, isValid }) => {
         if (isValid) {
-            const name = req.body.userName;
-            const email = req.body.userEmail;
-            const password = req.body.userPassword;
+            const name = req.body.username;
+            const email = req.body.email;
+            const password = req.body.password;
 
             const password_digest = bcrypt.hashSync(password, 10);
 
@@ -171,6 +173,41 @@ router.post('/api/users', (req, res) => {
         }
         else {
             res.status(400).json(errors);
+        }
+    });
+});
+
+router.get('/api/users/:identifier', (req, res) => {
+    User.query({
+        select: [ 'name', 'email' ],
+        where: { email: req.params.identifier },
+        orWhere: { name: req.params.identifier }
+    }).fetch().then(user => {
+        res.json({ user });
+    });
+});
+
+router.post('/api/authentication', (req, res) => {
+    const { identifier, password } = req.body;
+
+    User.query({
+        where: { name: identifier },
+        orWhere: { email: identifier }
+    }).fetch().then(user => {
+        if (user) {
+            if (bcrypt.compareSync(password, user.get('password_digest'))) {
+                const token = jwt.sign({
+                    id: user.get('id'),
+                    name: user.get('name')
+                }, configJWT.jwtSecret);
+                res.json({ token });
+            }
+            else {
+                res.status(401).json({ errors: { form: 'Invalid Credentials' } });
+            }
+        }
+        else {
+            res.status(401).json({ errors: { form: 'Invalid Credentials' } });
         }
     });
 });

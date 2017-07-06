@@ -1,8 +1,3 @@
-$form-width: 350px;
-$form-background-color: rgba(156, 184, 212, 0.7);
-$form-border-radius: 5px;
-$color-border-input: #8eaac7;
-
 .cp-modal-form {
     position: fixed;
     z-index: 1;
@@ -12,7 +7,7 @@ $color-border-input: #8eaac7;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: $color-backgroud-modal;
 }
 
 .cp-modal-form-close-button {
@@ -23,7 +18,7 @@ $color-border-input: #8eaac7;
     color: #ffffff;
     font-size: 70px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: $time-animation;
     text-decoration: none;
 }
 
@@ -166,6 +161,12 @@ $color-border-input: #8eaac7;
     margin: 15px auto;
     text-align: center;
     position: relative;
+}
+
+.cp-alert-form {
+    width: 300px;
+    margin: 10px auto;
+    padding: 12px;
 }
 
 .cp-alert-close {

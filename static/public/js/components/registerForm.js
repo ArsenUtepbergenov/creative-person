@@ -1,24 +1,26 @@
 import React from 'react';
 import classnames from 'classnames';
-import { _commonValidations } from '../utilities/utilities';
+import { _inputRegisterValidations } from '../utilities/utilities';
 
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: '',
-            userEmail: '',
-            userPassword: '',
-            userPasswordConfirmation: '',
+            username: '',
+            email: '',
+            password: '',
+            passwordConfirmation: '',
             errors: {},
-            isLoading: false
+            isLoading: false,
+            invalid: false
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.checkUserExists = this.checkUserExists.bind(this);
     }
 
     isValid() {
-        const { errors, isValid } = _commonValidations(this.state);
+        const { errors, isValid } = _inputRegisterValidations(this.state);
 
         if (!isValid) {
             this.setState({ errors });
@@ -39,8 +41,8 @@ class RegisterForm extends React.Component {
                     });
                     this.context.router.history.push('/');
                 })
-                .catch(error => {
-                    this.setState({ errors: error.response.data, isLoading: false })
+                .catch(err => {
+                    this.setState({ errors: err.response.data, isLoading: false })
                 });﻿
         }
     }
@@ -49,10 +51,30 @@ class RegisterForm extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    checkUserExists(event) {
+        const field = event.target.name;
+        const value = event.target.value;
+        if (value !== '') {
+            this.props.isUserExists(value).then(res => {
+                let errors = this.state.errors;
+                let invalid;
+                if (res.data.user) {
+                    errors[field] = 'There is user with such ' + field;
+                    invalid = true;
+                }
+                else {
+                    errors[field] = '';
+                    invalid = false;
+                }
+                this.setState({ errors, invalid });
+            });
+        }
+    }
+
     render() {
         const { errors } = this.state;
         return (
-            <form className="cp-form" onSubmit={this.onSubmit}>
+            <form className="cp-form" onSubmit={ this.onSubmit }>
                 <div className="cp-form-header">
                     <p className="cp-form-header-text">Sing up now <i className="fa fa-pencil" aria-hidden="true"></i></p>
                 </div>
@@ -62,12 +84,13 @@ class RegisterForm extends React.Component {
                         <div className="cp-form-input-icon-wrapper">
                             <i className="fa fa-user-circle cp-form-input-icon" aria-hidden="true"></i>
                         </div>
-                        <input name="userName"
+                        <input name="username"
                                type="text"
                                className="cp-form-input"
                                placeholder="Your name..."
-                               value={this.state.userName}
-                               onChange={this.onChange}>
+                               value={ this.state.username }
+                               onChange={ this.onChange }
+                               onBlur={ this.checkUserExists }>
                         </input>
                         <span className="cp-form-span">{ errors.username }</span>
                     </div>
@@ -76,12 +99,13 @@ class RegisterForm extends React.Component {
                         <div className="cp-form-input-icon-wrapper">
                             <i className="fa fa-envelope-open cp-form-input-icon" aria-hidden="true"></i>
                         </div>
-                        <input name="userEmail"
+                        <input name="email"
                                type="email"
                                className="cp-form-input"
                                placeholder="Your email..."
-                               value={this.state.userEmail}
-                               onChange={this.onChange}>
+                               value={ this.state.email }
+                               onChange={ this.onChange }
+                               onBlur={ this.checkUserExists }>
                         </input>
                         <span className="cp-form-span">{ errors.email }</span>
                     </div>
@@ -90,12 +114,12 @@ class RegisterForm extends React.Component {
                         <div className="cp-form-input-icon-wrapper">
                             <i className="fa fa-key cp-form-input-icon" aria-hidden="true"></i>
                         </div>
-                        <input name="userPassword"
+                        <input name="password"
                                type="password"
                                className="cp-form-input"
                                placeholder="Your password..."
-                               value={this.state.userPassword}
-                               onChange={this.onChange}>
+                               value={ this.state.password }
+                               onChange={ this.onChange }>
                         </input>
                         <span className="cp-form-span">{ errors.password }</span>
                     </div>
@@ -104,18 +128,18 @@ class RegisterForm extends React.Component {
                         <div className="cp-form-input-icon-wrapper">
                             <i className="fa fa-key cp-form-input-icon" aria-hidden="true"></i>
                         </div>
-                        <input name="userPasswordConfirmation"
+                        <input name="passwordConfirmation"
                                type="password"
                                className="cp-form-input"
                                placeholder="Confirm password..."
-                               value={this.state.userPasswordConfirmation}
-                               onChange={this.onChange}>
+                               value={ this.state.passwordConfirmation }
+                               onChange={ this.onChange }>
                         </input>
                         <span className="cp-form-span">{ errors.passwordConfirmation }</span>
                     </div>
 
                 </div>
-                <button disabled={ this.state.isLoading } className="cp-form-button">Register</button>
+                <button disabled={ this.state.isLoading || this.state.invalid } className="cp-form-button">Register</button>
             </form>
         );
     }
@@ -123,7 +147,8 @@ class RegisterForm extends React.Component {
 
 RegisterForm.propTypes = {
     userRegisterRequest: React.PropTypes.func.isRequired,
-    addFlashMessage: React.PropTypes.func.isRequired
+    addFlashMessage: React.PropTypes.func.isRequired,
+    isUserExists: React.PropTypes.func.isRequired
 }
 
 RegisterForm.contextTypes = {

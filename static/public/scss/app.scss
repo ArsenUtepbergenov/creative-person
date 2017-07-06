@@ -1,15 +1,3 @@
-$header-height: 70px;
-$cover-height: 500px;
-$color-app: rgba(0, 0, 0, 0.1);
-$color-navigation: rgb(26, 40, 63);
-$color-nav-link: rgba(0, 0, 0, 0.2);
-$color-nav-link-hover: rgba(0, 0, 0, 0.4);
-$color-footer: #405e94;
-$color-search-button: rgba(127, 181, 116, 0.9);
-$color-search-button-hover: rgba(127, 181, 116, 0.5);
-$color-register-signin-hover: rgba(127, 181, 116, 0.9);
-$color-backgroud-section: white;
-
 .cp-background-section {
     background-color: $color-backgroud-section;
     padding: 30px;
@@ -21,7 +9,7 @@ $color-backgroud-section: white;
     display: block;
     padding: 1.5em;
     color: white;
-    transition: 0.3s;
+    transition: $time-animation;
     height: inherit;
     font-family: Comic Sans MS;
 }
@@ -30,7 +18,6 @@ $color-backgroud-section: white;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    align-items: center;
     flex-wrap: nowrap;
 }
 
@@ -51,6 +38,10 @@ $color-backgroud-section: white;
     .cp-header-navigation {
         width: 100%;
         height: 100%;
+
+        @include tablet {
+            width: 70%;
+        };
 
         .cp-nav {
             height: 100%;
@@ -113,6 +104,7 @@ $color-backgroud-section: white;
 
         .cp-header-menu-elements {
             @extend .cp-nav-menu;
+            align-items: center;
             justify-content: flex-end;
             color: white;
             height: 100%;
@@ -163,7 +155,7 @@ $color-backgroud-section: white;
             height: 2px;
             width: 0;
             background-color: $color-register-signin-hover;
-            transition: width 0.3s ease-in-out;
+            transition: width $time-animation ease-in-out;
         }
 
         .cp-header-link-signin:hover::after, .cp-header-link-signin:focus::after,

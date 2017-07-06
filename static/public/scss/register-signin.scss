@@ -5,3 +5,21 @@
 .cp-signin {
     @extend .cp-background-section;
 }
+
+.cp-menu-logout-link {
+    text-decoration: none;
+    color: white;
+}
+
+.cp-menu-logout-link::after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: $color-register-signin-hover;
+    transition: width $time-animation ease-in-out;
+}
+
+.cp-menu-logout-link:hover::after {
+    width: 100%;
+}

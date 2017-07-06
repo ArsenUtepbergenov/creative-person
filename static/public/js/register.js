@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userRegisterRequest } from './actions/registerActions';
+import { userRegisterRequest, isUserExists } from './actions/registerActions';
 import { addFlashMessage } from './actions/flashMessagesActions';
 import RegisterForm from './components/registerForm';
 
 class Register extends React.Component {
     render() {
-        const { userRegisterRequest, addFlashMessage } = this.props;
+        const { userRegisterRequest, addFlashMessage, isUserExists } = this.props;
         return (
             <div className="cp-register">
-                <RegisterForm userRegisterRequest={ userRegisterRequest } addFlashMessage={ addFlashMessage }></RegisterForm>
+                <RegisterForm isUserExists={ isUserExists } userRegisterRequest={ userRegisterRequest } addFlashMessage={ addFlashMessage } />
             </div>
         );
     }
@@ -18,6 +18,7 @@ class Register extends React.Component {
 Register.propTypes = {
     userRegisterRequest: React.PropTypes.func.isRequired,
     addFlashMessage: React.PropTypes.func.isRequired,
+    isUserExists: React.PropTypes.func.isRequired
 }
 
-export default connect(null, { userRegisterRequest, addFlashMessage })(Register);
+export default connect(null, { userRegisterRequest, addFlashMessage, isUserExists })(Register);

@@ -31,7 +31,16 @@ button {
     font-family: Comic Sans MS;
     font-size: 1em;
     outline: none;
-    transition: 0.3s;
+    transition: $time-animation;
+}
+
+button:disabled {
+    background-color: #ff5454;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    background-color: #ff5454;
 }
 
 button:hover {

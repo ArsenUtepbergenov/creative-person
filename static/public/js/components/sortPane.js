@@ -47,7 +47,7 @@ class SortPane extends React.Component {
                     <div className="cp-sort-pane-caption">
                         <h3 className="cp-sort-pane-caption-text">Sortings:</h3>
                     </div>
-                    <button onClick={ () => this.changeSorting(this.state.currentSorting == 'Desc' ? 'Asc' : 'Desc') }>
+                    <button  className="cp-sort-pane-alphabetically-button" onClick={ () => this.changeSorting(this.state.currentSorting == 'Desc' ? 'Asc' : 'Desc') }>
                         Alphabetically:&nbsp;{ this.state.currentSorting }&nbsp;&nbsp; { this.state.currentSorting == 'Desc' ? <i className="fa fa-chevron-down" aria-hidden="true"></i> : <i className="fa fa-chevron-up" aria-hidden="true"></i> }
                     </button>
                 </div>
