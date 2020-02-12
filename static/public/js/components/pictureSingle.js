@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Picture from './picture';
 
 import { getPictures } from '../actions/galleryActions';
 
@@ -21,7 +21,7 @@ class PictureSingle extends React.Component {
             <div className="cp-picture-single">
                 <div className="cp-picture-single-content">
                     <div className="cp-image">
-                        <img src={ require(`../../img/${picture[0].image}`) } alt="picture" className="cp-picture" width="100%"></img>
+                        <img src={ `./public/img/${picture[0].image}` } alt="picture" className="cp-picture" width="100%"></img>
                     </div>
                     <div className="cp-info">
                         <p>Title: { picture[0].title }</p>
@@ -35,8 +35,8 @@ class PictureSingle extends React.Component {
 }
 
 PictureSingle.propTypes = {
-    pictures: React.PropTypes.array.isRequired,
-    getPictures: React.PropTypes.func.isRequired
+    pictures: PropTypes.array.isRequired,
+    getPictures: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

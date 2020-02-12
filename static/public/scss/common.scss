@@ -61,15 +61,15 @@
     background-color: $form-background-color;
     width: $form-width;
     border-radius: $form-border-radius;
-    margin: 0 auto;
-    text-align: center;
-    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cp-form-header {
     width: 100%;
     height: 100px;
-    margin-bottom: 20px;
     border-top-left-radius: $form-border-radius;
     border-top-right-radius: $form-border-radius;
     background-color: rgba(117, 144, 173, 0.9);
@@ -85,6 +85,7 @@
 .cp-form-body {
     display: flex;
     flex-direction: column;
+    margin: 10px auto;
 }
 
 .cp-form-footer {
@@ -128,9 +129,11 @@
     color: #ffffff;
 }
 
+.cp-form-button-wrapper {
+    margin: 0 auto 10px auto;
+}
+
 .cp-form-button {
-    margin: 20px auto 30px auto;
-    display: block;
     width: 270px;
 }
 

@@ -3,13 +3,14 @@ import webpack from 'webpack';
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 export default {
+    mode: 'development',
     entry: [
         'webpack-hot-middleware/client?reload=true',
         path.join(__dirname, './static/public/js/index.js')
     ],
     output: {
         filename: 'bundle.js',
-        path: '/',
+        path: path.resolve(__dirname, 'build'),
         publicPath: '/'
     }﻿,
     plugins: [
@@ -22,7 +23,7 @@ export default {
         })
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: '/node_modules/',
@@ -57,7 +58,7 @@ export default {
         ]
     },
     resolve: {
-        extensions: [' ', '.js']
+        extensions: ['.js', '.jsx']
     },
     node: {
         net: 'empty',

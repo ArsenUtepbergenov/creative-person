@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/signinActions';
@@ -50,8 +51,8 @@ class Menu extends React.Component {
 }
 
 Menu.propTypes = {
-    authentication: React.PropTypes.object.isRequired,
-    logout: React.PropTypes.func.isRequired
+    authentication: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

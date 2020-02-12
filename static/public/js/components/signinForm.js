@@ -1,11 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { login } from '../actions/signinActions';
 import { _inputLoginValidations } from '../utilities/utilities';
 
-class SigninForm extends React.Component {
+class SignInForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -45,7 +46,7 @@ class SigninForm extends React.Component {
     }
 
     render() {
-        const { identifier, password, errors, isLoading } = this.state;
+        const { errors, isLoading } = this.state;
         return (
             <form className="cp-form" onSubmit={ this.onSubmit }>
                 <div className="cp-form-header">
@@ -82,7 +83,9 @@ class SigninForm extends React.Component {
                         <span className="cp-form-span">{ errors.password }</span>
                     </div>
                 </div>
-                <button disabled={ isLoading } className="cp-form-button">Login</button>
+                <div className="cp-form-button-wrapper">
+                    <button disabled={ isLoading } className="cp-form-button">Login</button>
+                </div>
 
                 <div className="cp-form-footer">
                     <p className="cp-form-footer-text">
@@ -96,13 +99,8 @@ class SigninForm extends React.Component {
     }
 }
 
-SigninForm.propTypes = {
-    login: React.PropTypes.func.isRequired
+SignInForm.propTypes = {
+    login: PropTypes.func.isRequired
 }
 
-
-SigninForm.contextTypes = {
-    router: React.PropTypes.object.isRequired
-}
-
-export default connect(null, { login })(SigninForm);
+export default connect(null, { login })(SignInForm);

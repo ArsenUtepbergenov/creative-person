@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import PictureForm from './components/pictureForm';
@@ -76,9 +75,9 @@ Gallery.defaultProps = {
 }
 
 Gallery.propTypes = {
-    pictures: React.PropTypes.array.isRequired,
-    getPictures: React.PropTypes.func.isRequired,
-    deletePicture: React.PropTypes.func.isRequired
+    pictures: PropTypes.array.isRequired,
+    getPictures: PropTypes.func.isRequired,
+    deletePicture: PropTypes.func.isRequired
 }
 
 function getVisiblePictures(rating, sorting, pictures) {

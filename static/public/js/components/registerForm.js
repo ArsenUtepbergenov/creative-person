@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { _inputRegisterValidations } from '../utilities/utilities';
 
@@ -137,22 +138,19 @@ class RegisterForm extends React.Component {
                         </input>
                         <span className="cp-form-span">{ errors.passwordConfirmation }</span>
                     </div>
-
                 </div>
-                <button disabled={ this.state.isLoading || this.state.invalid } className="cp-form-button">Register</button>
+                <div className="cp-form-button-wrapper">
+                    <button disabled={ this.state.isLoading || this.state.invalid } className="cp-form-button">Register</button>
+                </div>
             </form>
         );
     }
 }
 
 RegisterForm.propTypes = {
-    userRegisterRequest: React.PropTypes.func.isRequired,
-    addFlashMessage: React.PropTypes.func.isRequired,
-    isUserExists: React.PropTypes.func.isRequired
-}
-
-RegisterForm.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    userRegisterRequest: PropTypes.func.isRequired,
+    addFlashMessage: PropTypes.func.isRequired,
+    isUserExists: PropTypes.func.isRequired
 }
 
 export default RegisterForm;

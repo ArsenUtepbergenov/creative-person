@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { onRatingChange, onSortingChange } from '../actions/galleryActions';
@@ -57,8 +58,8 @@ class SortPane extends React.Component {
 }
 
 SortPane.propTypes = {
-    onRatingChange: React.PropTypes.func.isRequired,
-    onSortingChange: React.PropTypes.func.isRequired
+    onRatingChange: PropTypes.func.isRequired,
+    onSortingChange: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

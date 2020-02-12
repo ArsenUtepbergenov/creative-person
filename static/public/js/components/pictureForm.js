@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -128,9 +129,9 @@ class PictureForm extends React.Component {
 }
 
 PictureForm.propTypes = {
-    savePicture: React.PropTypes.func.isRequired,
-    getPicture: React.PropTypes.func.isRequired,
-    updatePicture: React.PropTypes.func.isRequired
+    savePicture: PropTypes.func.isRequired,
+    getPicture: PropTypes.func.isRequired,
+    updatePicture: PropTypes.func.isRequired
 }
 
 PictureForm.defaultProps = {

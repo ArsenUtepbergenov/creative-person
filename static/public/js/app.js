@@ -9,7 +9,7 @@ import FlashMessagesList from './components/flashMessagesList';
 import Gallery from './gallery';
 import Home from './home';
 import Register from './register';
-import Signin from './signin';
+import SignIn from './signin';
 import Admin from './admin';
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
                 <Route path='/gallery/new/:id' component={PictureForm} />
                 <Route path='/picture/:id' component={PictureSingle} />
                 <Route path='/register' component={Register} />
-                <Route path='/signin' component={Signin} />
+                <Route path='/signin' component={SignIn} />
                 <Footer />
             </div>
         )

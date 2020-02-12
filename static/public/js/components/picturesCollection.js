@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Picture from './picture';
 
 export default function PicturesCollection({ pictures, deletePicture }) {
@@ -20,6 +21,6 @@ export default function PicturesCollection({ pictures, deletePicture }) {
 }
 
 PicturesCollection.propTypes = {
-    pictures: React.PropTypes.array.isRequired,
-    deletePicture: React.PropTypes.func.isRequired
+    pictures: PropTypes.array.isRequired,
+    deletePicture: PropTypes.func.isRequired
 }

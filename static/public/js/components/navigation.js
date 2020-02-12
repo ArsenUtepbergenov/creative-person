@@ -9,7 +9,7 @@ class NavigationBar extends React.Component {
                     <li className="cp-nav-link-wrapper">
                         <NavLink to='/'>
                             <div className="cp-nav-logo">
-                                <img src={ require('../../img/logo.png') } alt="logo" className="cp-logo-img" width="70px" height="60px"></img>
+                                <img src={ './public/img/logo.png' } alt="logo" className="cp-logo-img" width="70px" height="60px"></img>
                             </div>
                         </NavLink>
                     </li>

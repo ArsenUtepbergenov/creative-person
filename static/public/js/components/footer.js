@@ -33,7 +33,7 @@ class Footer extends React.Component {
                         </div>
                     </div>
                     <div className="cp-copyright">
-                        <p className="cp-copyright-content">&copy; 2017 All Rights Reserved.</p>
+                        <p className="cp-copyright-content">&copy; 2020 All Rights Reserved.</p>
                     </div>
                 </div>
             </footer>
